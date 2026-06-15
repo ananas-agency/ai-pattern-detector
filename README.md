@@ -15,13 +15,6 @@ gives you concrete before → after rewrites for every finding.
 /plugin install ai-pattern-detector@ai-pattern-detector
 ```
 
-To try it locally before it's on GitHub, point the marketplace at this folder:
-
-```
-/plugin marketplace add C:/Users/konst/OneDrive/Documents/Claude/Projects/ananas-claude-plugins
-/plugin install ai-pattern-detector@ai-pattern-detector
-```
-
 ## Usage
 
 Ask Claude to scan whatever you want checked. The skill triggers on requests like "make this
