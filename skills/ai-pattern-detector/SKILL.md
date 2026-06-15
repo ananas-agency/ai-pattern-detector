@@ -1,8 +1,6 @@
 ---
 name: ai-pattern-detector
-metadata:
-  version: "1.5"
-description: Scan a piece of text for telltale AI-writing patterns (vocabulary, constructions, punctuation, hedges, closers, formatting, voice) and propose specific rewrites. Use when the user wants writing de-AI'd or checked for AI patterns — whether they paste the text, point to a file or URL, or ask you to review a draft — to make it sound more human, less like ChatGPT-default prose.
+description: Use when the user wants writing de-AI'd or checked for AI patterns — whether they paste the text, point to a file or URL, or ask you to review a draft — to make it sound more human and less like ChatGPT-default prose. Flags telltale vocabulary, constructions, punctuation, hedges, closers, formatting, and voice tells, and proposes specific rewrites.
 ---
 
 # AI Pattern Detector
@@ -24,13 +22,13 @@ Scan prose written for humans. When the source mixes prose with code, data, or m
 
 ## Step 1 — quantified pre-scan
 
-Before pattern-hunting, compute these numbers from the text. They anchor the scan in evidence, make repeat runs consistent, and let the user compare drafts. Report them in the output's Metrics block.
+Before pattern-hunting, compute these numbers from the text — they anchor the scan in evidence and let the user compare drafts across edits. Report them in the output's Metrics block.
 
 | Metric | How to compute | Tell threshold |
 |---|---|---|
 | Word count / sentence count | count them | — (context for the rest) |
 | Sentence-length spread | words in shortest vs. longest sentence; rough variation (stdev ÷ mean) | shortest ≥ 1/3 of longest, or variation below ~0.4, = metronome tell. **Judge variation relative to the mean** — uniformly *short* lines (punchy social style) are human; uniform 15–25-word sentences are the AI shape |
-| Contraction count | count `don't / it's / we've`-style forms vs. uncontracted forms (`do not / it is / we have`) | **uncontracted forms present but zero contractions in 40+ words = Strong tell**; if the text has no contraction opportunities at all, no tell |
+| Contraction count | count only verb contractions (`don't / it's / we've / can't`) vs. uncontracted forms (`do not / it is / we have`); **do not count possessives (`today's`) or `let's`** | **uncontracted forms present but zero contractions in 40+ words = Strong tell**; if the text has no contraction opportunities at all, no tell |
 | Em-dash density | em-dashes ÷ words | > 1 per ~150 words = Medium; > 1 per paragraph = Strong (full rules in patterns.md §8) |
 | Telltale-vocab density | occurrences of patterns.md §1 vocabulary ÷ total words (exclude the faux-sincerity adverb sublist) | ≥ 2 per 100 words = Strong; ~1 per 100 = Medium |
 | Paragraph uniformity | sentence count per paragraph | every paragraph 3–5 sentences of similar length = Medium tell |
@@ -59,9 +57,15 @@ Scan for everything. A single text may contain dozens of tells — flag every in
 
 For each finding, assign one of:
 
-- **Strong** — obvious AI fingerprint on its own. Examples: "delve into the realm of", "stands as a testament to", "It's not just X — it's Y", "In today's fast-paced world", "Let that sink in", "[Noun]. That's it. That's the [thing].", and any of the fake-depth formulas (the triple "It's not X. It's not Y. It's Z.", "Most people… the few who win…", "If you're not X, you're already behind").
-- **Medium** — common in human writing too, but suspicious in this density, position, or combination. Examples: a single false-agency sentence, a vague declarative, a self-answered question.
-- **Weak** — only a tell when it appears alongside several others (e.g., a single em-dash, one "robust", an agentless passive, a faux-sincerity adverb cluster of three).
+- **Strong** — obvious AI fingerprint on its own. Examples: "delve into the realm of", "It's not just X — it's Y", "In today's fast-paced world", and any of the fake-depth formulas in patterns.md §3.
+- **Medium** — common in human writing too, but suspicious in this density, position, or combination. Examples: a single false-agency sentence, a vague declarative, a self-answered question, a lone throat-clearing hedge ("it's worth noting", "make no mistake"). A hedge rises to Strong only when stacked in the same span with any other tell (e.g., an AI adjective, a stock opener, or a closer cliché — the list is illustrative, not exhaustive), scored under the one-span rule below.
+- **Weak** — only a tell alongside several others: a single em-dash, one "robust", an agentless passive, a faux-sincerity adverb cluster of three.
+
+**One span, multiple patterns → one finding at the highest severity.** When a single quoted span stacks several tells (e.g., a stock opener that also contains two telltale verbs), raise *one* finding, list all the patterns in its Pattern line, and score it at the highest severity any of them earns. Don't split it into several findings — that inflates the counts and the score. The pattern deep-dive still treats each distinct pattern separately; the per-finding count does not.
+
+**Severity tie-break:** if a span matches both a Strong-tier and a lower-tier pattern, it's Strong. Fake-depth formulas (patterns.md §3) win over the generic "self-answered question / vague declarative" Medium examples — score the formula.
+
+**Metric findings vs. pattern findings (short texts):** the under-100-words cap (Step 1) limits *density-metric* findings to Weak — it does **not** cap a pattern finding that happens to involve the same token. A lone em-dash counted as a metric is Weak in a short text; the *same* em-dash as the pivot of an antithesis is a §3 construction and scores on its own merits. Raise the pattern finding, not a duplicate metric finding.
 
 If the text has zero Strong findings and only a handful of Medium/Weak, say so honestly. A scattering of "however"s does not make a text AI.
 
@@ -80,13 +84,17 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 ```markdown
 # AI Pattern Scan
 
-**Verdict:** <one sentence — e.g., "Heavy AI fingerprint: 14 strong tells across vocabulary, constructions, and closers." or "Light: a few stock phrases, otherwise reads human.">
+**Verdict:** <one sentence — cite the finding Total from Counts, not the deep-dive group count, so the two numbers agree — e.g., "Heavy AI fingerprint: 14 tells across vocabulary, constructions, and closers." or "Light: a few stock phrases, otherwise reads human.">
 
 **AI-feel score:** NN/100 — <band>
 
 **Counts:** Strong: N · Medium: N · Weak: N · Total: N
 
-**Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest) · N contractions · N em-dashes (N per 150 words) · telltale vocab N per 100 words
+**Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words
+<!-- On texts under ~100 words, state densities as "N (short text — density unreliable)" rather than forcing a per-150 figure. -->
+<!-- "Total" = number of findings below. The deep-dive groups those findings by distinct pattern, so it lists fewer blocks than the Total — that is expected, not a miscount. -->
+<!-- Report the sentence-length variation figure here; it carries the metronome tell, not the bare range. -->
+
 
 ---
 
@@ -102,11 +110,15 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 - **Pattern:** Antithesis construction with pivot em-dash (signature ChatGPT shape)
 - **Severity:** Strong
 - **Rewrite:** Cut the line, or get specific: "Treating content as a system rather than a set of one-off posts is what changes the outcome."
+- **Why this works:** Drops the empty strategy/mindset binary and the decorative em-dash, and states the actual distinction.
 
 ### 3. "It's worth noting that this approach can be quite robust."
 - **Pattern:** Throat-clearing hedge ("it's worth noting") + AI adjective ("robust") + qualifier stacking ("can be quite")
 - **Severity:** Strong
 - **Rewrite:** "This approach holds up under load." — or cut the sentence; if it's worth noting, just note it.
+- **Why this works:** Cuts the hedge and the qualifier, and replaces "robust" with the concrete property it was standing in for.
+
+Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this works** — in that order.
 
 (continue for every finding…)
 
