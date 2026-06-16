@@ -10,10 +10,15 @@ gives you concrete before → after rewrites for every finding.
 
 ## Install
 
+Clone the repo and load it into Claude Code:
+
 ```
-/plugin marketplace add ananas-agency/ai-pattern-detector
-/plugin install ai-pattern-detector@ai-pattern-detector
+git clone https://github.com/ananas-agency/ai-pattern-detector
+claude --plugin-dir ./ai-pattern-detector
 ```
+
+Then ask Claude to "de-AI this draft." To keep it loaded across sessions, copy
+`skills/ai-pattern-detector` into your `~/.claude/skills/` directory.
 
 ## Usage
 
@@ -27,6 +32,9 @@ sound less like AI," "de-AI this," or "check this for AI patterns." It works on:
 
 It scans prose written for humans — when a source mixes prose with code, config, or markup,
 it scans the prose and leaves the rest alone.
+
+**Language:** the plugin is built on English phrases and patterns, so it's designed for
+scanning English text.
 
 ```
 Scan this for AI patterns:
@@ -75,7 +83,6 @@ not a verdict on authorship — detectors are unreliable, and the skill says so.
 
 ```
 .claude-plugin/
-  marketplace.json              # marketplace manifest (this repo = one plugin)
   plugin.json                   # plugin manifest
 skills/
   ai-pattern-detector/

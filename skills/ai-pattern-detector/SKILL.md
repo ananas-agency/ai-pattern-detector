@@ -20,6 +20,8 @@ Scan whatever the user wants checked, from whatever source they give you:
 
 Scan prose written for humans. When the source mixes prose with code, data, or markup, scan the prose and leave the rest alone (see "What not to flag"). If it's genuinely unclear which text to scan — the message points at several things, or a file is almost all code with a line or two of prose — ask before scanning rather than guessing.
 
+**Language:** this skill is built on English phrases and patterns, so it's designed for scanning English text.
+
 ## Step 1 — quantified pre-scan
 
 Before pattern-hunting, compute these numbers from the text — they anchor the scan in evidence and let the user compare drafts across edits. Report them in the output's Metrics block.

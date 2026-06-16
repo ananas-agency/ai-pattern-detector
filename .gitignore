@@ -1,0 +1,6 @@
+# Marketing website — kept local, not part of the skill repo
+website/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
