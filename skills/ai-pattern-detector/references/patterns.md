@@ -8,7 +8,7 @@ Companion to [SKILL.md](../SKILL.md). Read this file in full before every scan �
 delve, dive into, embark, unpack, unlock / unlocking, navigate, leverage, utilize, foster / fostering, harness, cultivate, streamline, elevate, empower, showcase / showcasing, underscore / underscores, highlight / highlighting, emphasize / emphasizing, enhance, ensure, encompass / encompassing, exemplify, transcend, unleash, garner / garnered, boast / boasts, bolster / bolstered, surpass, align with, resonate with, revolutionize, reshape, redefine, reimagine, spearhead, lean into, double down, pave the way, set the stage, breathe new life into, stand as, serve as
 
 **High-signal adjectives:**
-robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning
+robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning, nestled
 
 **High-signal nouns / quantifiers:**
 myriad, plethora, a wealth of, a multitude of, a tapestry of, a treasure trove of, countless, a diverse array of, landscape, realm, world (of), sphere, arena, ecosystem, tapestry, journey, interplay, focal point, testament, reminder, hallmark, cornerstone, gateway, paradigm, synergy, alignment, underpinnings, game-changer
@@ -54,6 +54,7 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - **Reveal-close:** "And that's the real power of X." / "That's where X comes in."
 - **Self-answered question:** a rhetorical question resolved in the very next breath — "The result? X." / "The catch? Y." / "What if I told you…? Here's what I mean:" / "Sound familiar? That's because…" The question exists only to set up the answer; no reader was meant to think.
 - **Elegant variation:** synonym swapping rather than pronoun reuse within a paragraph (the protagonist → the character → the key player).
+- **Copula avoidance (the is/are dodge):** replacing plain "is / are / has" with elaborate stand-ins — "serves as," "stands as," "functions as," "represents," "boasts," "features," "maintains," "offers." One is fine; a piece that never just says "is" is a tell. (Wikipedia's *Signs of AI writing* calls this the avoidance of simple is/are.)
 
 ### Fake-depth formulas (high-signal)
 
@@ -126,6 +127,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "The possibilities are endless."
 - "The journey is just beginning."
 - "Welcome to the new era of…"
+- "Despite [challenges/setbacks], … continues to thrive." / "Despite [strengths], … faces challenges." — the "Despite these challenges…" formula conclusion that concedes one token counterpoint, then reasserts the other side. A near-universal AI closing move (flagged in Wikipedia's *Signs of AI writing*).
 - "And that's okay." (permission-granting ending — reassurance nobody asked for)
 - "Happy [verb]ing!" / "Stay tuned." / "Cheers!"
 - Final paragraph that restates the entire post in summary form
@@ -138,6 +140,7 @@ If the text was lifted directly from a chat, watch for:
 - "Feel free to…"
 - "As a large language model…" / "My training data…"
 - The reply echoing the prompt back ("You asked about X. X is…")
+- **Citation / markup artifacts leaked from the model:** stray tokens like `oaicite`, `contentReference`, `turn0search0`, `:::writing`, `[cite: 1]`, or `grok_render_citation_card` pasted into the text — direct fingerprints of ChatGPT, Gemini, Grok, etc. leaking their internal citation/render markup (catalogued in Wikipedia's *Signs of AI writing*).
 
 ## 8. Punctuation and formatting tells
 
