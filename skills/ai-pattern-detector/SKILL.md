@@ -160,7 +160,7 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 - **What it is:** 2-3 sentences describing the pattern and the shape it takes in THIS text (not a generic definition — tie it to how this writer used it).
 - **Why it reads as AI:** what the generator is doing when it produces this (e.g., resolving every argument with a reframe; filling an emphasis slot per section), and what a reader subconsciously notices.
 - **All instances:** every quoted span, listed (for 5+ instances, quote the clearest 5 and give locations of the rest).
-- **How to fix it — 2-3 strategies, each with a before → after example taken from this text:**
+- **How to fix it — 2-3 strategies, each with a before → after example taken from this text:** (See [references/examples.md](references/examples.md) for worked transformations of this pattern to model the before → after shape.)
   1. <strategy — e.g., "cut and state directly"> : "<their sentence>" → "<rewritten>"
   2. <strategy — e.g., "replace with a concrete fact/number"> : "<their sentence>" → "<rewritten>"
   3. <strategy — when there's a third genuinely different approach>
@@ -187,6 +187,7 @@ When proposing a rewrite:
 6. **Trade abstract for concrete.** "Industry reports suggest growth" → "Gartner's 2025 report puts growth at 12%." If the writer doesn't have the concrete, that's the real problem to flag.
 7. **Name the actor.** False-agency and agentless-passive sentences get a human subject: "the data tells us" → "I looked at the numbers and…"; "mistakes were made" → who made them. If no specific person fits, "you" puts the reader in the seat.
 8. **In the deep-dive, offer genuinely different strategies** — typically one *cut* option, one *concretize* option, one *restructure* option — so the writer picks what fits their voice instead of accepting a single imposed fix. Build every before → after example from the writer's own sentences, never from invented ones.
+9. **Consult the examples library.** For a pattern you're rewriting, see [references/examples.md](references/examples.md) for worked before → after transformations across registers. Read it during the rewrite / deep-dive phase only — never load it during the pre-scan.
 
 ## What not to flag
 
