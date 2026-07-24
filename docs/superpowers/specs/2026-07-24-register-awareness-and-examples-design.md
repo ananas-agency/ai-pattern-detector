@@ -37,7 +37,7 @@ Compared against `deslop`, this skill is already stronger: quantified pre-scan m
 
 ## Goals
 
-- Adapt scanning to register so scientific/academic and business writing aren't mis-flagged, and blog tells weigh correctly.
+- Adapt scanning across the seven registers this skill actually scans (social posts, marketing/landing pages, product descriptions, blogs, scientific, business, general) so each is calibrated correctly — native conventions aren't mis-flagged, and register-specific AI tells weigh heavier where they dominate.
 - Add a measurable lexical-diversity signal without letting it inflate the score on its own.
 - Add the nominalization tell with a calibration note that prevents mis-reading adjective-sparse prose as human.
 - Give the rewrite/deep-dive phase a reusable, register-varied example bank.
@@ -58,17 +58,20 @@ Compared against `deslop`, this skill is already stronger: quantified pre-scan m
 
 Infer exactly one register, report it, use it to calibrate what counts as a tell. Does not touch the score formula.
 
-Registers and inferring signals:
+Seven registers, chosen to cover the inputs this skill actually scans (social posts, landing pages, product copy, articles, papers, professional docs). Inferring signals:
 
 | Register | Inferring signals |
 |---|---|
-| Scientific/academic | citations, methods/passive constructions, hedged claims, domain terminology, "we" for own work, IMRaD structure, figures/tables |
-| Blog/newsletter | second-person "you", hook opener, contractions, personal anecdote, CTA |
-| Business/marketing | product/benefit framing, buzzwords, persuasive CTA |
+| Social post (LinkedIn/X/IG) | short lines, one-thought-per-line breaks, hook opener, hashtags, emoji, @-mentions/handles |
+| Marketing / landing page | headlines, benefit framing, CTAs, title-case section heads, feature blocks |
+| Product description / e-commerce | feature/spec listing, "whether you're…", short benefit blurbs, bullet specs |
+| Blog / editorial / newsletter | long-form prose, personal anecdote, section structure |
+| Scientific / academic | citations, methods/passive constructions, hedged claims, domain terminology, "we" for own work, IMRaD, figures/tables |
+| Business / professional | reports, memos, formal emails, corporate register |
 | General | none dominant (default; current behavior) |
 
 Rules:
-- **Auto-infer; ask only when genuinely ambiguous** (conflicting signals, or too short to tell).
+- **Auto-infer; ask only when genuinely ambiguous** (conflicting signals, or too short to tell). Social, marketing, and product copy overlap — when a text sits between two, pick the closest and note it; only ask if that isn't possible.
 - A short paragraph with no clear signals defaults to *general* — do not ask.
 - Register calibrates what counts as a tell (see 1d) and is reported in the output (see 1c). It never changes the AI-feel score formula.
 
@@ -90,9 +93,12 @@ Near the Metrics block:
 
 #### 1d. "What not to flag" — new register-keyed sub-list
 
-- **Scientific/academic** — do not flag: domain terminology; passive voice in methods; "we" for own work; conventional attribution ("the study found"); hedged claims ("may suggest"); standard field nominalization. **Still flag:** business buzzwords (leverage, landscape, ecosystem), AI vocab (delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
-- **Blog/newsletter** — do not flag: "you", contractions, direct address, one earned fragment/punchline. Uncontracted forms weigh **heavier** here.
-- **Business/marketing** — do not flag: some product/benefit jargon (native); a single closing CTA (expected). **Still flag:** stacked buzzwords, antithesis, closer clichés, engagement bait.
+- **Social post** — do not flag: short punchy lines (not a metronome tell — see the sentence-rhythm note in patterns.md §8), contractions, hashtags, emoji, one-line paragraphs. **Weighs heavier:** engagement bait (§11), formulaic fragmentation (§8), fake-depth formulas (§3) — the dominant AI social tells.
+- **Marketing / landing page** — do not flag: benefit language, a CTA, title-case headlines, some superlatives. **Still flag:** antithesis ("not just X — it's Y"), stacked buzzwords, "In today's world" openers, em-dash overuse, tricolon abuse.
+- **Product description / e-commerce** — do not flag: feature-adjective stacking ("durable, lightweight, waterproof"), spec bullets, second-person "you". **Still flag:** AI vocab (elevate, seamless, game-changer), "whether you're X or Y", vague benefit inflation, "not just X — it's Y".
+- **Blog / editorial / newsletter** — do not flag: "you", contractions, direct address, one earned fragment/punchline. **Weighs heavier:** narrator-from-a-distance, engagement bait, uncontracted forms.
+- **Scientific / academic** — do not flag: domain terminology; passive voice in methods; "we" for own work; conventional attribution ("the study found"); hedged claims ("may suggest"); standard field nominalization. **Still flag:** business buzzwords (leverage, landscape, ecosystem), AI vocab (delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
+- **Business / professional** — do not flag: some domain jargon, formal tone. **Still flag:** stacked buzzwords, antithesis, closer clichés, both-sides-itis.
 - **General** — current default calibration, unchanged.
 
 #### 1e. Reference `examples.md` in the workflow
@@ -134,25 +140,26 @@ Entry format:
 **Changes:** …
 ```
 
-Seed set (~15, register-varied):
+Seed set (~16, spanning all seven registers so each has at least one worked example):
 
 | # | Pattern (§) | Register |
 |---|---|---|
-| 1 | §1 Telltale vocab (delve/leverage/landscape) | business |
-| 2 | §2 Stock opener ("In today's fast-paced world") | business |
-| 3 | §3 Antithesis ("not just X — it's Y") | blog |
-| 4 | §3 Stacked-antithesis fake-depth formula | social/blog |
+| 1 | §1 Telltale vocab (delve/leverage/landscape) | business/professional |
+| 2 | §2 Stock opener ("In today's fast-paced world") | marketing / landing page |
+| 3 | §3 Antithesis ("not just X — it's Y") | product description |
+| 4 | §3 Stacked-antithesis fake-depth formula | social post |
 | 5 | §3 False agency ("the data tells us") | scientific |
-| 6 | §4 Hedge ("it's worth noting") | scientific |
-| 7 | §5 Meta-commentary ("in this section we'll explore") | scientific |
-| 8 | §6 Closer ("In conclusion…") | general |
-| 9 | §8 Em-dash overuse | blog |
-| 10 | §8 Formulaic fragmentation ("Let that sink in.") | blog |
-| 11 | §8 Sentence-length uniformity | general |
-| 12 | §9 Vague declarative ("The implications are significant") | scientific |
-| 13 | §9 Narrator-from-a-distance | blog |
-| 14 | §9 Nominalization (the new tell) | scientific |
-| 15 | §11 Engagement bait | social |
+| 6 | §3 "Whether you're X or Y" + benefit inflation | product description |
+| 7 | §4 Hedge ("it's worth noting") | scientific |
+| 8 | §5 Meta-commentary ("in this section we'll explore") | blog / editorial |
+| 9 | §6 Closer ("In conclusion…") | general |
+| 10 | §8 Em-dash overuse | marketing / landing page |
+| 11 | §8 Formulaic fragmentation ("Let that sink in.") | social post |
+| 12 | §8 Sentence-length uniformity | general |
+| 13 | §9 Vague declarative ("The implications are significant") | scientific |
+| 14 | §9 Narrator-from-a-distance | blog / editorial |
+| 15 | §9 Nominalization (the new tell) | scientific |
+| 16 | §11 Engagement bait | social post |
 
 Each "After" must model the skill's own rewriting rules: specific over abstract, cut over substitute, no AI tell swapped for another, register-appropriate.
 
@@ -180,8 +187,8 @@ A scan runs: **Step 0 (infer register)** → **Step 1 (pre-scan metrics, now inc
 
 No automated test harness exists (this is a prose skill). Verification is manual:
 
-1. **Register inference** — run the skill on a scientific abstract, a blog post, a marketing page, and an ambiguous snippet; confirm each infers the right register (or asks only on the ambiguous one) and reports it.
-2. **Register calibration** — confirm a scientific methods passage is not flagged for passive voice / domain terms, while business-buzzword leakage in the same text still flags.
+1. **Register inference** — run the skill on one text per register (social post, landing page, product description, blog, scientific abstract, business memo) plus an ambiguous snippet; confirm each infers the right register (or picks the closest / asks only on the genuinely ambiguous one) and reports it.
+2. **Register calibration** — spot-check the calibration rules: a scientific methods passage isn't flagged for passive voice / domain terms (but buzzword leakage still flags); a product description isn't flagged for feature-adjective stacking (but "elevate your experience" still flags); a social post's short lines aren't flagged as a metronome tell (but engagement bait weighs heavier).
 3. **Lexical-diversity metric** — run on a deliberately repetitive text and a varied one; confirm the metric fires Medium (supporting only) on the former and does not change the score independently.
 4. **Nominalization tell** — run on a noun-heavy nominalized passage; confirm it flags Medium (Weak in scientific register) and the rewrite un-nominalizes.
 5. **Examples library** — confirm the deep-dive references `examples.md` and that it is not loaded during a plain scan.
@@ -189,7 +196,7 @@ No automated test harness exists (this is a prose skill). Verification is manual
 
 ## Risks
 
-- **Register mis-inference** on mixed-genre text. Mitigated by defaulting to *general* (current behavior) rather than guessing, and asking only when genuinely ambiguous.
+- **Register mis-inference** on mixed-genre text — sharper with seven registers, since social, marketing, and product copy overlap heavily. Mitigated by picking the closest register (defaulting to *general* when no signal dominates) rather than guessing, and asking only when a closest pick isn't possible. Because register only calibrates *what counts as a tell* and never the score, a near-miss between two adjacent copy registers has limited downside.
 - **Lexical-diversity metric being hand-computed** by the model is approximate. Mitigated by making it supporting-only, capping it under 100 words, and never letting it move the score alone.
 - **Nominalization tell over-firing** in scientific writing. Mitigated by the register calibration (drops to Weak) and the explicit "don't read sparse adjectives as human" note.
 
