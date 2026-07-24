@@ -7,7 +7,7 @@ description: Use when the user wants writing de-AI'd or checked for AI patterns 
 
 Read the text the user provides and find phrases, words, and structures that read as AI-generated. For each finding, quote the exact span, name the pattern, and propose a concrete rewrite.
 
-The pattern catalog lives in [references/patterns.md](references/patterns.md) — eleven categories drawn from Wikipedia's "Signs of AI writing" reference page, Pangram Labs' detection guide, GPTZero's AI vocabulary index, Grammarly's "Common AI Words" research, Originality.ai's analyses, and the Kobak et al. (2024) academic study on excess vocabulary in post-ChatGPT scientific abstracts. Sources are listed at the bottom of this file.
+The pattern catalog lives in [references/patterns.md](references/patterns.md) — eleven categories drawn from Wikipedia's "Signs of AI writing" reference page, Pangram Labs' detection guide, GPTZero's AI vocabulary index, Grammarly's "Common AI Words" research, Originality.ai's analyses, the Kobak et al. (2024) academic study on excess vocabulary in post-ChatGPT scientific abstracts, the Terčon & Dobrovoljc (2025) survey of AI linguistic characteristics, and a 2025 Computer Science Review survey of detection methods. Sources are listed at the bottom of this file.
 
 ## Input
 
@@ -22,6 +22,28 @@ Scan prose written for humans. When the source mixes prose with code, data, or m
 
 **Language:** this skill is built on English phrases and patterns, so it's designed for scanning English text.
 
+## Step 0 — identify register
+
+Before measuring anything, infer the text's **register** — the kind of writing it is. Register decides *what counts as a tell*: a feature-adjective stack is native to a product description but a tell in an essay; short punchy lines are native to a social post but a metronome tell in a report. Register never changes the AI-feel score formula — only which findings you raise and how heavily each weighs.
+
+Infer exactly one register from these signals:
+
+| Register | Inferring signals |
+|---|---|
+| **Social post** (LinkedIn / X / Instagram) | short lines, one-thought-per-line breaks, hook opener, hashtags, emoji, @-mentions or handles |
+| **Marketing / landing page** | headlines, benefit framing, CTAs, title-case section heads, feature blocks |
+| **Product description / e-commerce** | feature/spec listing, "whether you're…", short benefit blurbs, bullet specs |
+| **Blog / editorial / newsletter** | long-form prose, personal anecdote, section structure |
+| **Scientific / academic** | citations, methods/passive constructions, hedged claims, domain terminology, "we" for own work, IMRaD structure, figures/tables |
+| **Business / professional** | reports, memos, formal emails, corporate register |
+| **General** | none of the above dominates (default) |
+
+Rules:
+
+- **Auto-infer; ask only when genuinely ambiguous.** Social, marketing, and product copy overlap — when a text sits between two, pick the closest and say which in the Register line. Ask the user only when you can't even pick a closest register.
+- A short paragraph with no clear signals is **general** — don't ask.
+- Report the inferred register in the output (see Output format) and apply its calibration from "What not to flag." Register never changes the score.
+
 ## Step 1 — quantified pre-scan
 
 Before pattern-hunting, compute these numbers from the text — they anchor the scan in evidence and let the user compare drafts across edits. Report them in the output's Metrics block.
@@ -34,8 +56,9 @@ Before pattern-hunting, compute these numbers from the text — they anchor the 
 | Em-dash density | em-dashes ÷ words | > 1 per ~150 words = Medium; > 1 per paragraph = Strong (full rules in patterns.md §8) |
 | Telltale-vocab density | occurrences of patterns.md §1 vocabulary ÷ total words (exclude the faux-sincerity adverb sublist) | ≥ 2 per 100 words = Strong; ~1 per 100 = Medium |
 | Paragraph uniformity | sentence count per paragraph | every paragraph 3–5 sentences of similar length = Medium tell |
+| Lexical diversity / repetition | unique content words ÷ total content words over a ~150–250-word window (moving-average TTR, to control for length); also note any content word repeated 4+ times that isn't the topic term | TTR < ~0.40 over the window = **Medium** (corroborating only — never conclusive alone). Under-100-words cap applies (→ Weak). |
 
-Notes on computing: when splitting sentences, **treat line breaks as sentence boundaries too** — short-form posts often drop terminal punctuation (one thought per line), and splitting only on `.!?` collapses them into one fake mega-sentence. **On texts under ~100 words, density thresholds are unreliable** (one em-dash in a short post clears the per-150-words bar) — judge function over density there, and cap such metric findings at Weak. Each metric over threshold counts as a finding with the severity given above.
+Notes on computing: when splitting sentences, **treat line breaks as sentence boundaries too** — short-form posts often drop terminal punctuation (one thought per line), and splitting only on `.!?` collapses them into one fake mega-sentence. **On texts under ~100 words, density thresholds are unreliable** (one em-dash in a short post clears the per-150-words bar) — judge function over density there, and cap such metric findings at Weak. Each metric over threshold counts as a finding with the severity given above. **Lexical diversity is a *supporting* signal** (Terčon & Dobrovoljc 2025 survey: AI text runs lower-diversity than human writing): low diversity corroborates other findings but must never move the score on its own — never raise it above Medium, and don't raise it at all if it's the only thing you'd flag.
 
 ## Step 2 — pattern scan
 
@@ -92,6 +115,8 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 
 **Counts:** Strong: N · Medium: N · Weak: N · Total: N
 
+**Register:** <inferred register> — <one clause on how it calibrated the scan>
+
 **Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words
 <!-- On texts under ~100 words, state densities as "N (short text — density unreliable)" rather than forcing a per-150 figure. -->
 <!-- "Total" = number of findings below. The deep-dive groups those findings by distinct pattern, so it lists fewer blocks than the Total — that is expected, not a miscount. -->
@@ -135,7 +160,7 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 - **What it is:** 2-3 sentences describing the pattern and the shape it takes in THIS text (not a generic definition — tie it to how this writer used it).
 - **Why it reads as AI:** what the generator is doing when it produces this (e.g., resolving every argument with a reframe; filling an emphasis slot per section), and what a reader subconsciously notices.
 - **All instances:** every quoted span, listed (for 5+ instances, quote the clearest 5 and give locations of the rest).
-- **How to fix it — 2-3 strategies, each with a before → after example taken from this text:**
+- **How to fix it — 2-3 strategies, each with a before → after example taken from this text:** (See [references/examples.md](references/examples.md) for worked transformations of this pattern to model the before → after shape.)
   1. <strategy — e.g., "cut and state directly"> : "<their sentence>" → "<rewritten>"
   2. <strategy — e.g., "replace with a concrete fact/number"> : "<their sentence>" → "<rewritten>"
   3. <strategy — when there's a third genuinely different approach>
@@ -162,6 +187,7 @@ When proposing a rewrite:
 6. **Trade abstract for concrete.** "Industry reports suggest growth" → "Gartner's 2025 report puts growth at 12%." If the writer doesn't have the concrete, that's the real problem to flag.
 7. **Name the actor.** False-agency and agentless-passive sentences get a human subject: "the data tells us" → "I looked at the numbers and…"; "mistakes were made" → who made them. If no specific person fits, "you" puts the reader in the seat.
 8. **In the deep-dive, offer genuinely different strategies** — typically one *cut* option, one *concretize* option, one *restructure* option — so the writer picks what fits their voice instead of accepting a single imposed fix. Build every before → after example from the writer's own sentences, never from invented ones.
+9. **Consult the examples library.** For a pattern you're rewriting, see [references/examples.md](references/examples.md) for worked before → after transformations across registers. Read it during the rewrite / deep-dive phase only — never load it during the pre-scan.
 
 ## What not to flag
 
@@ -175,6 +201,16 @@ When proposing a rewrite:
 - Conventional attribution figures like "the report concludes" or "the study found" — false agency means abstractions doing *human* verbs, not standard journalistic shorthand
 - A single organic fragment or one earned punchline — fragmentation is a tell only when it's formulaic or recurs in a template slot (see patterns.md §8)
 
+**Register-specific calibration** (from Step 0 — apply the row matching the inferred register):
+
+- **Social post** — don't flag: short punchy lines (not a metronome tell — see the sentence-rhythm note in patterns.md §8), contractions, hashtags, emoji, one-line paragraphs. *Weighs heavier here:* engagement bait (§11), formulaic fragmentation (§8), fake-depth formulas (§3) — the dominant AI social tells.
+- **Marketing / landing page** — don't flag: benefit language, a CTA, title-case headlines, some superlatives. *Still flag:* antithesis ("not just X — it's Y"), stacked buzzwords, "In today's world" openers, em-dash overuse, tricolon abuse.
+- **Product description / e-commerce** — don't flag: feature-adjective stacking ("durable, lightweight, waterproof"), spec bullets, second-person "you". *Still flag:* AI vocab (elevate, seamless, game-changer), "whether you're X or Y", vague benefit inflation, "not just X — it's Y".
+- **Blog / editorial / newsletter** — don't flag: "you", contractions, direct address, one earned fragment/punchline. *Weighs heavier here:* narrator-from-a-distance, engagement bait, uncontracted forms.
+- **Scientific / academic** — don't flag: domain terminology, passive voice in methods, "we" for own work, conventional attribution ("the study found"), hedged claims ("may suggest"), standard field nominalization. *Still flag:* business-buzzword & AI-vocab leakage (leverage, landscape, delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
+- **Business / professional** — don't flag: some domain jargon, formal tone. *Still flag:* stacked buzzwords, antithesis, closer clichés, both-sides-itis.
+- **General** — the default calibration already described above; no register-specific relaxation.
+
 When uncertain, mark Weak rather than skipping — and note in the verdict that some findings may be intentional.
 
 ---
@@ -183,7 +219,7 @@ When uncertain, mark Weak rather than skipping — and note in the verdict that 
 
 The pattern lists in [references/patterns.md](references/patterns.md) are synthesized from:
 
-- Wikipedia, *Signs of AI writing* — community-curated reference page (2026)
+- Wikipedia, *Signs of AI writing* — community-curated reference page (re-verified 2026-07)
 - Pangram Labs, *Comprehensive Guide to Spotting AI Writing Patterns*
 - GPTZero, *AI Vocabulary* index (Top phrases by AI-vs-human frequency, updated May 2026)
 - Grammarly, *Decoding AI Language: Common Words and Phrases in AI-Generated Content*
@@ -191,3 +227,5 @@ The pattern lists in [references/patterns.md](references/patterns.md) are synthe
 - Kobak, Gonzalez-Marquez, & Horvát (2024), *Delving into ChatGPT usage in academic writing through excess vocabulary* (arXiv:2406.07016) — large-scale analysis of vocabulary shift in 14M PubMed abstracts post-ChatGPT
 - Walter Writes AI, *Most Common ChatGPT Words to Avoid in 2026*
 - Hunting the Muse, *How to spot when writing is AI: 6 elements of a robot's style*
+- Terčon & Dobrovoljc (2025), *Linguistic Characteristics of AI-Generated Text: A Survey* (arXiv:2510.05136) — cross-study synthesis: AI text runs noun/determiner/adposition-heavy, adjective/adverb-light, with lower lexical diversity and a smaller vocabulary range
+- *AI-generated text detection: A comprehensive review of methods, datasets, and applications*, Computer Science Review (2025) (ScienceDirect S1574013725000693) — survey of detection methods, datasets, and applications; reinforces that the AI-feel score is a density-of-evidence measure, not an authorship verdict

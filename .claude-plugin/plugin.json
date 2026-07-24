@@ -1,6 +1,6 @@
 {
   "name": "ai-pattern-detector",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Scan text for telltale AI-writing patterns (vocabulary, constructions, punctuation, hedges, closers, formatting, voice) and propose specific rewrites to make it sound human.",
   "author": {
     "name": "Ananas Agency (Konstantine)",

@@ -8,7 +8,7 @@ Companion to [SKILL.md](../SKILL.md). Read this file in full before every scan �
 delve, dive into, embark, unpack, unlock / unlocking, navigate, leverage, utilize, foster / fostering, harness, cultivate, streamline, elevate, empower, showcase / showcasing, underscore / underscores, highlight / highlighting, emphasize / emphasizing, enhance, ensure, encompass / encompassing, exemplify, transcend, unleash, garner / garnered, boast / boasts, bolster / bolstered, surpass, align with, resonate with, revolutionize, reshape, redefine, reimagine, spearhead, lean into, double down, pave the way, set the stage, breathe new life into, stand as, serve as
 
 **High-signal adjectives:**
-robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning
+robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning, nestled
 
 **High-signal nouns / quantifiers:**
 myriad, plethora, a wealth of, a multitude of, a tapestry of, a treasure trove of, countless, a diverse array of, landscape, realm, world (of), sphere, arena, ecosystem, tapestry, journey, interplay, focal point, testament, reminder, hallmark, cornerstone, gateway, paradigm, synergy, alignment, underpinnings, game-changer
@@ -54,6 +54,7 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - **Reveal-close:** "And that's the real power of X." / "That's where X comes in."
 - **Self-answered question:** a rhetorical question resolved in the very next breath — "The result? X." / "The catch? Y." / "What if I told you…? Here's what I mean:" / "Sound familiar? That's because…" The question exists only to set up the answer; no reader was meant to think.
 - **Elegant variation:** synonym swapping rather than pronoun reuse within a paragraph (the protagonist → the character → the key player).
+- **Copula avoidance (the is/are dodge):** replacing plain "is / are / has" with elaborate stand-ins — "serves as," "stands as," "functions as," "represents," "boasts," "features," "maintains," "offers." One is fine; a piece that never just says "is" is a tell. (Wikipedia's *Signs of AI writing* calls this the avoidance of simple is/are.)
 
 ### Fake-depth formulas (high-signal)
 
@@ -126,6 +127,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "The possibilities are endless."
 - "The journey is just beginning."
 - "Welcome to the new era of…"
+- "Despite [challenges/setbacks], … continues to thrive." / "Despite [strengths], … faces challenges." — the "Despite these challenges…" formula conclusion that concedes one token counterpoint, then reasserts the other side. A near-universal AI closing move (flagged in Wikipedia's *Signs of AI writing*).
 - "And that's okay." (permission-granting ending — reassurance nobody asked for)
 - "Happy [verb]ing!" / "Stay tuned." / "Cheers!"
 - Final paragraph that restates the entire post in summary form
@@ -138,6 +140,7 @@ If the text was lifted directly from a chat, watch for:
 - "Feel free to…"
 - "As a large language model…" / "My training data…"
 - The reply echoing the prompt back ("You asked about X. X is…")
+- **Citation / markup artifacts leaked from the model:** stray tokens like `oaicite`, `contentReference`, `turn0search0`, `:::writing`, `[cite: 1]`, or `grok_render_citation_card` pasted into the text — direct fingerprints of ChatGPT, Gemini, Grok, etc. leaking their internal citation/render markup (catalogued in Wikipedia's *Signs of AI writing*).
 
 ## 8. Punctuation and formatting tells
 
@@ -229,6 +232,7 @@ Also flag:
 - **Vague declaratives:** sentences that announce importance without naming the thing — "The implications are significant." / "The stakes are high." / "The reasons are structural." / "The consequences are real." / "This is the deepest problem." Kin: telling instead of showing — "This is genuinely hard." / "This is what leadership actually looks like." / "…actually matters." If a sentence says something is important, deep, or hard without showing the specific thing, the specific thing is missing. Medium each; Strong when two or more stack.
 - **Narrator-from-a-distance:** disembodied observation floating above the scene — "Nobody designed this." / "People tend to…" / "This happens because…" / "This is why…" as a recurring lecturer move. Armchair-sociologist voice with no one in the room. The fix puts the reader in the scene: "You don't sit down one day and decide to…" beats "Nobody designed this."
 - **Agentless passive:** "Mistakes were made." / "It is believed that…" / "The decision was reached." Passive voice that hides who acted. Weak individually (plenty of human writing is passive); Medium when the whole piece avoids naming actors — and check whether it pairs with false agency (§3), which is the same evasion wearing an active voice.
+- **Nominalization / noun-heavy register:** AI defaults to a formal, noun-stacked register — nominalizing verbs and adjectives ("the implementation of", "a reduction in", "the utilization of") and stacking determiners + prepositions ("the analysis of the impact of the changes on the system"). Cross-study surveys find AI text runs noun-, determiner-, and preposition-heavy and adjective/adverb-*light* vs. human writing. **Calibration:** do NOT read sparse adjectives/adverbs as a human signal — adjective-light *and* noun-heavy is the tell. This is not a contradiction of §1 (which flags specific AI-preferred adjectives when they appear); this flags the overall nominalized shape. Medium; drops to Weak in scientific/academic register where some nominalization is conventional (see "What not to flag" in SKILL.md). **Rewrite:** un-nominalize ("the utilization of X" → "using X") and name a verb + actor.
 
 ## 10. Structural tells
 
