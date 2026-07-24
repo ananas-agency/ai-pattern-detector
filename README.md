@@ -8,6 +8,10 @@ constructions, hedges, meta-commentary, closers, GPT artifacts, punctuation and 
 voice, structure, and engagement bait — scores the text on a 0–100 "AI-feel" scale, and
 gives you concrete before → after rewrites for every finding.
 
+It first identifies the text's register — social post, landing page, product description, blog,
+scientific, business, or general — and calibrates what counts as a tell to match, so a product
+description's feature list or a scientific paper's methods-passive isn't mistaken for AI.
+
 ## Install
 
 Clone the repo and load it into Claude Code:
@@ -77,7 +81,9 @@ Claude finishes by offering to apply every rewrite and hand back the clean full 
 Domain jargon you chose on purpose, parenthetical em-dashes in technical writing, bullets in
 step-by-step instructions, passive voice in scientific or legal registers, and words like
 "robust" used in their literal technical sense. The score is a density-of-evidence measure,
-not a verdict on authorship — detectors are unreliable, and the skill says so.
+not a verdict on authorship — detectors are unreliable, and the skill says so. It also adapts to
+register: it won't flag a product description's feature-adjective stack or a scientific paper's
+methods-passive, which are native there.
 
 ## Structure
 
@@ -86,8 +92,10 @@ not a verdict on authorship — detectors are unreliable, and the skill says so.
   plugin.json                   # plugin manifest
 skills/
   ai-pattern-detector/
-    SKILL.md                    # workflow: metrics, scoring, output format
-    references/patterns.md      # the eleven-category pattern catalog
+    SKILL.md                    # workflow: register, metrics, scoring, output format
+    references/
+      patterns.md               # the eleven-category pattern catalog
+      examples.md               # worked before → after rewrites, by pattern
     CHANGELOG.md
 ```
 

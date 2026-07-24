@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.6 — 2026-07-24
+
+Register-awareness and a worked-examples library, plus two new academic sources. Prompted by a comparison with the `deslop` skill (every-app/open-seo). Two of deslop's ideas were deliberately NOT adopted — a proactive "writing mode" (this stays a post-hoc detector) and a redundant "quick-checks" fast-pass (the quantified pre-scan metrics already do that job better).
+
+### Added
+
+- **Step 0 — register identification.** Every scan now infers one of seven registers (social post, marketing/landing page, product description, blog/editorial, scientific/academic, business/professional, general) from text signals, reports it in the output, and calibrates *what counts as a tell* accordingly — never the AI-feel score. Native conventions per register are no longer mis-flagged (feature-adjective stacks in product copy, short lines in social posts, methods-passive in papers), while register-specific AI tells weigh heavier where they dominate (engagement bait and formulaic fragmentation in social posts). Calibration rules live in an expanded "What not to flag."
+- **Lexical-diversity / repetition metric (Step 1).** A supporting pre-scan metric — moving-average type-token ratio over a 150–250-word window; TTR below ~0.40 is a Medium tell. Corroborating only: it never inflates the score on its own and is capped Weak under 100 words. From the Terčon & Dobrovoljc (2025) finding that AI text has lower lexical diversity.
+- **Nominalization / noun-heavy register tell (patterns.md §9).** Flags AI's formal, noun-stacked, nominalized shape, with a calibration note that adjective/adverb-sparse prose is NOT a human signal (adjective-light *and* noun-heavy is itself the tell) and that this does not contradict §1.
+- **references/examples.md.** A library of sixteen worked Before → After → Changes transformations, at least one per register, cross-referenced to the pattern catalog. Read on demand during the rewrite / deep-dive phase only, not during the pre-scan.
+- **Four patterns from the refreshed Wikipedia *Signs of AI writing* mine:** copula avoidance (the is/are dodge) in §3; the "Despite [X], faces challenges" formula conclusion in §6; leaked model citation/markup artifacts (`oaicite`, `contentReference`, `turn0search0`, `:::writing`, `[cite: 1]`) in §7; and "nestled" added to the promotional-vocabulary cluster in §1.
+- **Two academic sources:** Terčon & Dobrovoljc (2025), *Linguistic Characteristics of AI-Generated Text: A Survey* (arXiv:2510.05136); and *AI-generated text detection: A comprehensive review of methods, datasets, and applications*, Computer Science Review (2025). Wikipedia *Signs of AI writing* re-verified.
+
 ## 1.5 — 2026-06-15
 
 Flexible input. v1.4 and earlier required pasted plain text and told the model to refuse URLs and files — unrealistic, since users hand it a file, a link, or just say "review this." The Input section now accepts pasted text, a file (scanning only human-facing prose, not code/syntax), a URL (scanning main body text), or a draft already in context, and asks for clarification when the target is ambiguous instead of refusing. Description updated to match so the skill triggers on those phrasings.
