@@ -7,7 +7,7 @@ description: Use when the user wants writing de-AI'd or checked for AI patterns 
 
 Read the text the user provides and find phrases, words, and structures that read as AI-generated. For each finding, quote the exact span, name the pattern, and propose a concrete rewrite.
 
-The pattern catalog lives in [references/patterns.md](references/patterns.md) — eleven categories drawn from Wikipedia's "Signs of AI writing" reference page, Pangram Labs' detection guide, GPTZero's AI vocabulary index, Grammarly's "Common AI Words" research, Originality.ai's analyses, and the Kobak et al. (2024) academic study on excess vocabulary in post-ChatGPT scientific abstracts. Sources are listed at the bottom of this file.
+The pattern catalog lives in [references/patterns.md](references/patterns.md) — eleven categories drawn from Wikipedia's "Signs of AI writing" reference page, Pangram Labs' detection guide, GPTZero's AI vocabulary index, Grammarly's "Common AI Words" research, Originality.ai's analyses, the Kobak et al. (2024) academic study on excess vocabulary in post-ChatGPT scientific abstracts, the Terčon & Dobrovoljc (2025) survey of AI linguistic characteristics, and a 2025 Computer Science Review survey of detection methods. Sources are listed at the bottom of this file.
 
 ## Input
 
@@ -219,7 +219,7 @@ When uncertain, mark Weak rather than skipping — and note in the verdict that 
 
 The pattern lists in [references/patterns.md](references/patterns.md) are synthesized from:
 
-- Wikipedia, *Signs of AI writing* — community-curated reference page (2026)
+- Wikipedia, *Signs of AI writing* — community-curated reference page (re-verified 2026-07)
 - Pangram Labs, *Comprehensive Guide to Spotting AI Writing Patterns*
 - GPTZero, *AI Vocabulary* index (Top phrases by AI-vs-human frequency, updated May 2026)
 - Grammarly, *Decoding AI Language: Common Words and Phrases in AI-Generated Content*
@@ -227,3 +227,5 @@ The pattern lists in [references/patterns.md](references/patterns.md) are synthe
 - Kobak, Gonzalez-Marquez, & Horvát (2024), *Delving into ChatGPT usage in academic writing through excess vocabulary* (arXiv:2406.07016) — large-scale analysis of vocabulary shift in 14M PubMed abstracts post-ChatGPT
 - Walter Writes AI, *Most Common ChatGPT Words to Avoid in 2026*
 - Hunting the Muse, *How to spot when writing is AI: 6 elements of a robot's style*
+- Terčon & Dobrovoljc (2025), *Linguistic Characteristics of AI-Generated Text: A Survey* (arXiv:2510.05136) — cross-study synthesis: AI text runs noun/determiner/adposition-heavy, adjective/adverb-light, with lower lexical diversity and a smaller vocabulary range
+- *AI-generated text detection: A comprehensive review of methods, datasets, and applications*, Computer Science Review (2025) (ScienceDirect S1574013725000693) — survey of detection methods, datasets, and applications; reinforces that the AI-feel score is a density-of-evidence measure, not an authorship verdict
