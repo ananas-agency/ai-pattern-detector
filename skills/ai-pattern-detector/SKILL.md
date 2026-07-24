@@ -22,6 +22,28 @@ Scan prose written for humans. When the source mixes prose with code, data, or m
 
 **Language:** this skill is built on English phrases and patterns, so it's designed for scanning English text.
 
+## Step 0 — identify register
+
+Before measuring anything, infer the text's **register** — the kind of writing it is. Register decides *what counts as a tell*: a feature-adjective stack is native to a product description but a tell in an essay; short punchy lines are native to a social post but a metronome tell in a report. Register never changes the AI-feel score formula — only which findings you raise and how heavily each weighs.
+
+Infer exactly one register from these signals:
+
+| Register | Inferring signals |
+|---|---|
+| **Social post** (LinkedIn / X / Instagram) | short lines, one-thought-per-line breaks, hook opener, hashtags, emoji, @-mentions or handles |
+| **Marketing / landing page** | headlines, benefit framing, CTAs, title-case section heads, feature blocks |
+| **Product description / e-commerce** | feature/spec listing, "whether you're…", short benefit blurbs, bullet specs |
+| **Blog / editorial / newsletter** | long-form prose, personal anecdote, section structure |
+| **Scientific / academic** | citations, methods/passive constructions, hedged claims, domain terminology, "we" for own work, IMRaD structure, figures/tables |
+| **Business / professional** | reports, memos, formal emails, corporate register |
+| **General** | none of the above dominates (default) |
+
+Rules:
+
+- **Auto-infer; ask only when genuinely ambiguous.** Social, marketing, and product copy overlap — when a text sits between two, pick the closest and say which in the Register line. Ask the user only when you can't even pick a closest register.
+- A short paragraph with no clear signals is **general** — don't ask.
+- Report the inferred register in the output (see Output format) and apply its calibration from "What not to flag." Register never changes the score.
+
 ## Step 1 — quantified pre-scan
 
 Before pattern-hunting, compute these numbers from the text — they anchor the scan in evidence and let the user compare drafts across edits. Report them in the output's Metrics block.
@@ -91,6 +113,8 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 **AI-feel score:** NN/100 — <band>
 
 **Counts:** Strong: N · Medium: N · Weak: N · Total: N
+
+**Register:** <inferred register> — <one clause on how it calibrated the scan>
 
 **Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words
 <!-- On texts under ~100 words, state densities as "N (short text — density unreliable)" rather than forcing a per-150 figure. -->
@@ -174,6 +198,16 @@ When proposing a rewrite:
 - Passive voice in registers where it's the convention (scientific methods sections, legal drafting, formal reports)
 - Conventional attribution figures like "the report concludes" or "the study found" — false agency means abstractions doing *human* verbs, not standard journalistic shorthand
 - A single organic fragment or one earned punchline — fragmentation is a tell only when it's formulaic or recurs in a template slot (see patterns.md §8)
+
+**Register-specific calibration** (from Step 0 — apply the row matching the inferred register):
+
+- **Social post** — don't flag: short punchy lines (not a metronome tell — see the sentence-rhythm note in patterns.md §8), contractions, hashtags, emoji, one-line paragraphs. *Weighs heavier here:* engagement bait (§11), formulaic fragmentation (§8), fake-depth formulas (§3) — the dominant AI social tells.
+- **Marketing / landing page** — don't flag: benefit language, a CTA, title-case headlines, some superlatives. *Still flag:* antithesis ("not just X — it's Y"), stacked buzzwords, "In today's world" openers, em-dash overuse, tricolon abuse.
+- **Product description / e-commerce** — don't flag: feature-adjective stacking ("durable, lightweight, waterproof"), spec bullets, second-person "you". *Still flag:* AI vocab (elevate, seamless, game-changer), "whether you're X or Y", vague benefit inflation, "not just X — it's Y".
+- **Blog / editorial / newsletter** — don't flag: "you", contractions, direct address, one earned fragment/punchline. *Weighs heavier here:* narrator-from-a-distance, engagement bait, uncontracted forms.
+- **Scientific / academic** — don't flag: domain terminology, passive voice in methods, "we" for own work, conventional attribution ("the study found"), hedged claims ("may suggest"), standard field nominalization. *Still flag:* business-buzzword & AI-vocab leakage (leverage, landscape, delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
+- **Business / professional** — don't flag: some domain jargon, formal tone. *Still flag:* stacked buzzwords, antithesis, closer clichés, both-sides-itis.
+- **General** — the default calibration already described above; no register-specific relaxation.
 
 When uncertain, mark Weak rather than skipping — and note in the verdict that some findings may be intentional.
 
