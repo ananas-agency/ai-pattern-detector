@@ -51,10 +51,17 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - "Let me be clear…" / "The truth is,…"
 - "I'll say it again:"
 - "I'm going to be honest…" / "Can we talk about…"
+- **Staged candor opener:** "Honestly?", "Look,", "Real talk:", "Let's be honest,", "The thing is," standing alone before a routine claim, staging a moment of frankness instead of making the point. Inside an ordinary casual sentence ("honestly, I forgot the file") these are normal and not flagged. [Medium]
 
 ## 3. Signature constructions
 
 - **Antithesis (the dead giveaway):** "It's not just X — it's Y." / "It's not about X; it's about Y." / "Not only X, but also Y." / "More than just X." / "Beyond mere X."
+- **Not-X-but-Y split across sentences:** the same antithesis spread over two sentences so it reads like a correction: "This doesn't mean X. It means Y." / "The point isn't X. The point is Y." [Strong]
+- **Reversed "rather than" reframe:** "a bridge between the two tools rather than a replacement for either" / "Rather than adding a step, it removes one." Wikipedia notes the reversed form is frequent in recent model output, but people write "rather than" constantly: Weak on its own; Medium when it does the reframe work of a not-X-but-Y (setting up a claim nobody made just to correct it). [Weak alone; Medium when it reframes]
+- **Clipped negative tail:** a sentence that ends on a curt negation tacked on for punch: "…synced straight from your calendar, no setup." / "…one click, no guesswork." [Medium]
+- **Mid-2026 corrective framing:** disclaimers telling the reader how to treat a claim, which Wikipedia reports as near-unheard-of before mid-2026: "should be treated as tradition rather than as evidence", "does not establish that…", "should not be confused with…" (the last is the least reliable of the three). [Medium; "should not be confused with" alone Weak]
+- **Arguing with no one:** answering an objection nobody raised or rejecting an option nobody proposed, usually a leftover from an earlier draft: "I'm not saying…", "To be clear,", "Don't get me wrong,", "This is not to say…", "A tempting approach would be…", "One might be tempted to…", "You might think… but". Keep an objection the text attributes to someone or answers in full, and an alternative a reader would genuinely weigh. Several unrelated ones in a row are a stronger sign than one. [Medium; Strong at 2+]
+- **Trailing "-ing" add-on:** a participle clause bolted onto a plain fact to make it sound deeper: "…, reflecting the team's deep commitment to quality", "…, highlighting its importance", "…, underscoring the city's role in the region". Keep the fact; keep the clause only when the text supports what it claims. [Medium]
 - **Negate-then-assert:** "no X, no Y, just Z."
 - **Far-from reveal:** "Far from being X, it's actually Y."
 - **Inclusive whether:** "Whether you're a beginner or a pro…" / "Whether you're X, Y, or Z…"
@@ -82,6 +89,7 @@ A family of rhetorical templates that dominate AI-assisted writing of every kind
 - **"You don't need more X. You need Y." minimalist smack:** "You don't need more [resources]. You need [intangible virtue]." → *"You don't need more tools. You need one process you repeat."* Pretends to simplify while staying abstract.
 - **"It's never been easier / harder" paradox:** "It's never been easier to [X]. It's never been harder to [Y]." → *"It's never been easier to create content. It's never been harder to be remembered."* Two exaggerated era-claims, no evidence.
 - **"Here's the truth / nobody tells you" fake reveal:** "Here's the truth: [obvious statement]." / "What nobody tells you is that [obvious statement]." → *"Here's the truth: AI won't fix a boring offer."* Signals depth, then delivers a platitude.
+- **Aphorism formula:** an ordinary point dressed as a maxim, usually a metaphor of the form "X is the Y of Z": "X is the language of Y", "the currency of", "the architecture of", "X becomes a trap", "X is not a tool but a mirror". → *"Clarity is the currency of leadership."* Replace the saying with the specific claim it gestures at, or cut it. [Strong]
 
 ### False agency (no human in the sentence)
 
@@ -125,6 +133,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "Let me walk you through…" / "In this section, we'll…" / "As we'll see…"
 - "The rest of this essay/post explains…"
 - "I want to explore…" (announcing intent instead of doing the thing)
+- **Text describing itself:** the document narrates its own history, sourcing, or layout instead of its subject: "This function was added to replace…", "compiled from each vendor's site…", "anything unconfirmed is flagged rather than guessed", "the table below compares…" when the reader can see the table. Fine in changelogs, release notes, and migration guides; a source credit the reader can follow stays, and so does a caveat that changes what the reader should do. [Medium; a single description of the page Weak]
 
 ## 6. Closers and conclusions
 
@@ -141,6 +150,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "And that's okay." (permission-granting ending — reassurance nobody asked for)
 - "Happy [verb]ing!" / "Stay tuned."
 - Final paragraph that restates the entire post in summary form
+- **Dramatic closers and fragments:** a short line that asks the reader to pause instead of adding anything: "That distinction matters.", "Read that again.", or a sentence after an example that names what the example already showed ("This shows the importance of…", "The message was clear:", "It was a lesson in…"). The fragment forms ("every. single. day.", one word in ALL CAPS) are listed under formulaic fragmentation in §8. Keep a short line that adds a new fact or consequence. [Medium; Strong if repeated after several sections]
 
 ## 7. GPT response artifacts
 
@@ -151,6 +161,10 @@ If the text was lifted directly from a chat, watch for:
 - "As a large language model…" / "My training data…"
 - The reply echoing the prompt back ("You asked about X. X is…")
 - **Citation / markup artifacts leaked from the model:** stray tokens like `oaicite`, `contentReference`, `turn0search0`, `:::writing`, `[cite: 1]`, or `grok_render_citation_card` pasted into the text — direct fingerprints of ChatGPT, Gemini, Grok, etc. leaking their internal citation/render markup (catalogued in Wikipedia's *Signs of AI writing*).
+- **Chatbot offers:** "Would you like me to…", "Want me to…?", "Should I continue?", "Let me know if you'd like me to expand / adjust…", "You're absolutely right", "Of course!" as an opener, "Here is a revised version of…". Flag only when the phrase offers more help with the text itself or wraps content the way a chat reply does. Ordinary requests in a real email or comment ("Let me know if Thursday works", "let me know if you have questions") are not chat leftovers. [Strong]
+- **Placeholder text:** fill-in slots left over from a template: "[Describe the specific section]", "(Add your URL here)", "[Article Title 1]". [Strong]
+- **Template greeting:** "I hope this message finds you well." People write it too, so it's Weak in a business or professional email and Medium elsewhere. [Weak in business email; Medium elsewhere]
+- **Knowledge-limit disclaimers and guesses:** the text admits it found no source, then fills the gap with a plausible guess: "as of my last update", "while specific details are limited", "not publicly available", "not widely documented", "maintains a low profile", "likely grew up / studied…", "it is believed that". [Strong]
 
 ## 8. Punctuation and formatting tells
 
@@ -164,6 +178,8 @@ If the text was lifted directly from a chat, watch for:
 - **Title-case headings** ("Why You Should Care About This")
 - **Callouts** like `Pro tip:`, `Note:`, `Important:`, `Key Takeaways:` sprinkled liberally
 - **No contractions** ("do not" / "it is" / "we have" everywhere where "don't" / "it's" / "we've" would be natural)
+- **Decoration:** emoji or arrows (🚀 💡 ✅ →) used as bullet or heading markers; a horizontal rule between every section; a heading repeated in its own first sentence ("## Pricing" then "Price matters."); headings written for effect instead of naming what the section holds ("Where it all comes together"). One emoji in a social post is fine; an emoji on every line or bullet is the tell, in any register. [Medium]
+- **Hyphen kept after the noun:** compound modifiers keep their hyphen in every position: "the report is high-quality", "the process is well-documented". After the noun they lose it ("the report is high quality"). Words the dictionary always hyphenates (self-employed, all-inclusive) keep it everywhere. [Weak]
 
 ### Em-dash overuse (the signature punctuation tell)
 
@@ -208,6 +224,7 @@ Flag these fragment formulas:
 - **"Full stop." / "Period."** standing alone as emphasis.
 - **"Let that sink in."** — manufactured profundity after an ordinary claim.
 - **Hedge fragments:** "Not always. Not perfectly." — hedging disguised as rhythm.
+- **Spaced-out emphasis:** "every. single. day." (periods between words) or one word in ALL CAPS for emphasis. See also dramatic closers in §6.
 - **Recurring one-word verdict lines:** "Wrong." / "Exactly." / "Every time." as a paragraph opener or closer. One of these in a piece is human emphasis; one per paragraph is a template firing.
 
 **How to tell organic from formulaic:** organic fragments are unpredictable — you couldn't have guessed one was coming. Formulaic fragments fill a slot you can see coming (after a list, before a reveal, at the bottom of every paragraph). If you can name the template, it's a tell.
@@ -236,6 +253,8 @@ Also flag:
 - **Coach register:** motivational second-person addressed to "you" without the writer earning it
 - **Earnest helpfulness:** explicit signals of being helpful ("This guide will walk you through…")
 - **Vague attribution:** "Industry reports suggest…", "Experts argue…", "Studies show…", "Researchers have found…" with no citation
+- **Prestige lists:** a list of outlets or a follower count standing in for what was actually said: "featured in Forbes, TechCrunch, and Wired", "a community of over 200,000 followers". Name the source and what it said, or cut the list. [Medium]
+- **Vague association:** "associated with", "in association with", "in connection with", "linked to", "tied to" when the actual relationship is hidden (founder? board member? consultant?). If the text doesn't say, keep the vague wording rather than inventing a role. [Weak]
 - **Generic specificity:** when forced to give a name, defaults to "Emily" or "Sarah"; when forced to give a company, defaults to "Acme" or "TechCorp"; when forced to give a number, gives a round one
 - **Missing concretes:** no dates, no proper nouns, no numbers, no first-hand details — only abstractions
 - **Unnatural neutrality:** corporate-documentation register applied to a topic the writer should have a view on. Weak alone: Wikipedia lists "bland" prose on its own as an ineffective sign. [Weak]
@@ -251,6 +270,7 @@ Also flag:
 - Predictable section progression: Introduction → What is X → Why it matters → Challenges → Future Outlook → Conclusion
 - Each H2 section is roughly the same length
 - Article ends with a "Key Takeaways" or "TL;DR" box that recaps what was just said
+- **Wrong reader:** a reply (PR comment, email reply, chat message) that restates the problem, walks through the diagnosis and the proof, and reaches the decision in its last line. The reader already has the context, so the rebuild buries the point; each sentence can look fine on its own. Act only when the text is clearly a reply. Fix: lead with the decision and keep only the reasoning that would change whether the reader agrees. [Medium]
 - Abrupt tonal shifts mid-article (possibly human + AI mixing; mixed registers alone are an ineffective sign, since several authors or one playful writer do it too) [Weak]
 
 ## 11. Engagement bait (social posts)

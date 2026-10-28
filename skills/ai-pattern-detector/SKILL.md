@@ -245,7 +245,7 @@ When proposing a rewrite:
 
 **Register-specific calibration** (from Step 0 — apply the row matching the inferred register):
 
-- **Social post** — don't flag: short punchy lines (not a metronome tell — see the sentence-rhythm note in patterns.md §8), contractions, hashtags, emoji, one-line paragraphs. *Weighs heavier here:* engagement bait (§11), formulaic fragmentation (§8), fake-depth formulas (§3) — the dominant AI social tells.
+- **Social post** — don't flag: short punchy lines (not a metronome tell — see the sentence-rhythm note in patterns.md §8), contractions, hashtags, an occasional emoji, one-line paragraphs. *Still flag:* emoji used as a bullet or line marker on every line (patterns.md §8 Decoration). *Weighs heavier here:* engagement bait (§11), formulaic fragmentation (§8), fake-depth formulas (§3) — the dominant AI social tells.
 - **Marketing / landing page** — don't flag: benefit language, a CTA, title-case headlines, some superlatives. *Still flag:* antithesis ("not just X — it's Y"), stacked buzzwords, "In today's world" openers, em-dash overuse, tricolon abuse.
 - **Product description / e-commerce** — don't flag: feature-adjective stacking ("durable, lightweight, waterproof"), spec bullets, second-person "you". *Still flag:* AI vocab (elevate, seamless, game-changer), "whether you're X or Y", vague benefit inflation, "not just X — it's Y".
 - **Blog / editorial / newsletter** — don't flag: "you", contractions, direct address, one earned fragment/punchline. *Weighs heavier here:* narrator-from-a-distance, engagement bait, uncontracted forms.
