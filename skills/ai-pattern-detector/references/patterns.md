@@ -129,7 +129,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "Welcome to the new era of…"
 - "Despite [challenges/setbacks], … continues to thrive." / "Despite [strengths], … faces challenges." — the "Despite these challenges…" formula conclusion that concedes one token counterpoint, then reasserts the other side. A near-universal AI closing move (flagged in Wikipedia's *Signs of AI writing*).
 - "And that's okay." (permission-granting ending — reassurance nobody asked for)
-- "Happy [verb]ing!" / "Stay tuned." / "Cheers!"
+- "Happy [verb]ing!" / "Stay tuned."
 - Final paragraph that restates the entire post in summary form
 
 ## 7. GPT response artifacts
@@ -228,7 +228,7 @@ Also flag:
 - **Vague attribution:** "Industry reports suggest…", "Experts argue…", "Studies show…", "Researchers have found…" with no citation
 - **Generic specificity:** when forced to give a name, defaults to "Emily" or "Sarah"; when forced to give a company, defaults to "Acme" or "TechCorp"; when forced to give a number, gives a round one
 - **Missing concretes:** no dates, no proper nouns, no numbers, no first-hand details — only abstractions
-- **Unnatural neutrality:** corporate-documentation register applied to a topic the writer should have a view on
+- **Unnatural neutrality:** corporate-documentation register applied to a topic the writer should have a view on. Weak alone: Wikipedia lists "bland" prose on its own as an ineffective sign. [Weak]
 - **Vague declaratives:** sentences that announce importance without naming the thing — "The implications are significant." / "The stakes are high." / "The reasons are structural." / "The consequences are real." / "This is the deepest problem." Kin: telling instead of showing — "This is genuinely hard." / "This is what leadership actually looks like." / "…actually matters." If a sentence says something is important, deep, or hard without showing the specific thing, the specific thing is missing. Medium each; Strong when two or more stack.
 - **Narrator-from-a-distance:** disembodied observation floating above the scene — "Nobody designed this." / "People tend to…" / "This happens because…" / "This is why…" as a recurring lecturer move. Armchair-sociologist voice with no one in the room. The fix puts the reader in the scene: "You don't sit down one day and decide to…" beats "Nobody designed this."
 - **Agentless passive:** "Mistakes were made." / "It is believed that…" / "The decision was reached." Passive voice that hides who acted. Weak individually (plenty of human writing is passive); Medium when the whole piece avoids naming actors — and check whether it pairs with false agency (§3), which is the same evasion wearing an active voice.
@@ -241,7 +241,7 @@ Also flag:
 - Predictable section progression: Introduction → What is X → Why it matters → Challenges → Future Outlook → Conclusion
 - Each H2 section is roughly the same length
 - Article ends with a "Key Takeaways" or "TL;DR" box that recaps what was just said
-- Abrupt tonal shifts mid-article (sign of human + AI mixing)
+- Abrupt tonal shifts mid-article (possibly human + AI mixing; mixed registers alone are an ineffective sign, since several authors or one playful writer do it too) [Weak]
 
 ## 11. Engagement bait (social posts)
 
