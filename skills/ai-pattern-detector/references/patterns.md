@@ -5,16 +5,28 @@ Companion to [SKILL.md](../SKILL.md). Read this file in full before every scan �
 ## 1. Tell-tale vocabulary
 
 **High-signal verbs** (Kobak study + cross-source consensus):
-delve, dive into, embark, unpack, unlock / unlocking, navigate, leverage, utilize, foster / fostering, harness, cultivate, streamline, elevate, empower, showcase / showcasing, underscore / underscores, highlight / highlighting, emphasize / emphasizing, enhance, ensure, encompass / encompassing, exemplify, transcend, unleash, garner / garnered, boast / boasts, bolster / bolstered, surpass, align with, resonate with, revolutionize, reshape, redefine, reimagine, spearhead, lean into, double down, pave the way, set the stage, breathe new life into, stand as, serve as
+delve, dive into / deep dive, embark, unpack, unlock / unlocking, navigate, leverage, utilize, foster / fostering, harness, cultivate, streamline, elevate, empower, showcase / showcasing, underscore / underscores, highlight / highlighting, emphasize / emphasizing, enhance, ensure, encompass / encompassing, exemplify, transcend, unleash, garner / garnered, boast / boasts, bolster / bolstered, surpass, align with, resonate with, revolutionize, reshape, redefine, reimagine, spearhead, lean into, double down, pave the way, set the stage, breathe new life into, gate / gated / gating (figurative only; feature gating and CI gates are literal)
 
 **High-signal adjectives:**
-robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning, nestled
+robust, seamless, vibrant, crucial, pivotal, paramount, meticulous / meticulously, comprehensive, holistic, multifaceted, nuanced, profound, transformative, groundbreaking, cutting-edge, state-of-the-art, intricate / intricacies, valuable, vital, key, significant, enduring, lasting, indelible, commendable, dynamic, authentic, complex, critical, rich, deep-rooted, renowned, esteemed, exquisite, captivating, bustling, burgeoning, nestled, breathtaking, stunning, must-visit
 
 **High-signal nouns / quantifiers:**
-myriad, plethora, a wealth of, a multitude of, a tapestry of, a treasure trove of, countless, a diverse array of, landscape, realm, world (of), sphere, arena, ecosystem, tapestry, journey, interplay, focal point, testament, reminder, hallmark, cornerstone, gateway, paradigm, synergy, alignment, underpinnings, game-changer
+myriad, plethora, a wealth of, a multitude of, a tapestry of, a treasure trove of, countless, a diverse array of, landscape, realm, world (of), sphere, arena, ecosystem, tapestry, journey, interplay, focal point, testament, reminder, hallmark, cornerstone, gateway, paradigm, synergy, alignment, underpinnings, game-changer, in the heart of, commitment to
 
-**Transition / adverb stacks:**
-furthermore, moreover, consequently, notably, importantly, additionally, primarily, fundamentally, essentially, ultimately, indeed, vibrantly, vividly, dynamically, critically, crucially, aptly
+**AI adverbs:**
+vibrantly, vividly, dynamically, critically, crucially, aptly
+
+Older-model words (delve, tapestry, testament…) stay on these lists because older drafts still circulate and some models still use them. Their absence proves nothing: newer models dropped many of them.
+
+**Newer-model words** (Wikipedia's list for models from mid-2026 on; a separate cluster tell, NOT counted toward the density metric):
+challenge, clearer, dependable, echoed, matters, practical, prioritize, quietly, steady, universally
+
+These are everyday words, so one sighting is ignored. Count the distinct words from this list within any ~300-word stretch (a text under ~300 words is one stretch): 3+ distinct = one Weak finding, 5+ = Medium, quoting each. Counting per stretch keeps a long human report from reaching the threshold by length alone. Newer models also write short, dash-free sentences (see the newer-model rhythm in §8).
+
+**Transition words** (NOT counted toward the density metric):
+furthermore, moreover, consequently, notably, importantly, additionally, primarily, fundamentally, essentially, ultimately, indeed
+
+Wikipedia lists transition words on their own as an ineffective sign, since human essay writing uses them too. Flag them only when 2+ sit in the same paragraph: one Weak finding per such paragraph.
 
 **Faux-sincerity adverbs** (separate cluster tell — do NOT count these toward the telltale-vocab density metric; they're too common in human writing for density math):
 genuinely, honestly, truly, deeply, literally, actually, really, just, simply, inherently, inevitably
@@ -28,7 +40,6 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - "In the realm of…"
 - "At its core…"
 - "Let me explain…" / "Let's dive in." / "Let's explore." / "Let's break it down."
-- "In essence…"
 - "Without further ado…"
 - "Imagine…" / "Picture this…"
 - "Gone are the days when…"
@@ -93,7 +104,6 @@ Inanimate things performing human verbs. AI defaults to this because it lets the
 - "It's important to note / remember…"
 - "Keep in mind that…"
 - "That said,…"
-- "Ultimately,…"
 - "At the end of the day,…"
 - "When it comes to…"
 - "In essence,…"
