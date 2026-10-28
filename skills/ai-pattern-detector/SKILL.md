@@ -130,22 +130,25 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 ### 1. "delve into the ever-evolving landscape of content marketing"
 - **Pattern:** Stock opener stacked with telltale vocabulary (`delve`, `ever-evolving`, `landscape`)
 - **Severity:** Strong
-- **Rewrite:** "Content marketing keeps changing. Here's what's different in 2026."
-- **Why this works:** Replaces three abstract words with one concrete claim and a time anchor.
+- **Rewrite:** "Content marketing keeps changing."
+- **Why this works:** Replaces three abstract words with the plain claim underneath them.
+- **Stronger if you have it:** "Content marketing keeps changing. This year [the specific change you've seen]."
 
 ### 2. "It's not just a strategy — it's a mindset."
 - **Pattern:** Antithesis construction with pivot em-dash (signature ChatGPT shape)
 - **Severity:** Strong
-- **Rewrite:** Cut the line, or get specific: "Treating content as a system rather than a set of one-off posts is what changes the outcome."
-- **Why this works:** Drops the empty strategy/mindset binary and the decorative em-dash, and states the actual distinction.
+- **Rewrite:** Cut the line.
+- **Why this works:** Drops the empty strategy/mindset binary and the decorative em-dash. The sentences around it already carry the point.
+- **Stronger if you have it:** "We [the habit your team actually changed], and [the result it produced]."
 
 ### 3. "It's worth noting that this approach can be quite robust."
 - **Pattern:** Throat-clearing hedge ("it's worth noting") + AI adjective ("robust") + qualifier stacking ("can be quite")
 - **Severity:** Strong
-- **Rewrite:** "This approach holds up under load." — or cut the sentence; if it's worth noting, just note it.
-- **Why this works:** Cuts the hedge and the qualifier, and replaces "robust" with the concrete property it was standing in for.
+- **Rewrite:** "This approach works."
+- **Why this works:** Cuts the hedge and the qualifiers. "Robust" claimed a property the text never names, so the plain version claims only what's there.
+- **Stronger if you have it:** "This approach holds up under [the load or condition you tested it against]."
 
-Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this works** — in that order.
+Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this works** — in that order, plus an optional fifth, **Stronger if you have it**, only when a missing fact would make a clearly better fix. Its [square-bracket slots] name the missing fact in plain words; they never appear in a Rewrite line or the clean text.
 
 (continue for every finding…)
 
@@ -162,7 +165,7 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 - **All instances:** every quoted span, listed (for 5+ instances, quote the clearest 5 and give locations of the rest).
 - **How to fix it — 2-3 strategies, each with a before → after example taken from this text:** (See [references/examples.md](references/examples.md) for worked transformations of this pattern to model the before → after shape.)
   1. <strategy — e.g., "cut and state directly"> : "<their sentence>" → "<rewritten>"
-  2. <strategy — e.g., "replace with a concrete fact/number"> : "<their sentence>" → "<rewritten>"
+  2. <strategy — e.g., "use a concrete detail already in the text, or name the gap"> : "<their sentence>" → "<rewritten>"
   3. <strategy — when there's a third genuinely different approach>
 - **If you only do one thing:** the single highest-leverage edit for this pattern.
 
@@ -170,24 +173,41 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 
 ## Summary of rewrites
 
-Offer to apply everything: "Want me to apply these fixes and output the clean full text?" If yes:
+Offer to apply everything: "Want me to apply these fixes and output the clean full text?" If yes, run the Rewrite self-check (below this template), then output:
 
-<paste the user's text with edits inline — clean rewrite, not a diff>
+<clean full text: safe versions only, no brackets, nothing invented>
+
+**Details worth adding:** (only if any finding had a "Stronger" line)
+- <missing fact> — would strengthen "<short quote of the sentence>"
+
+**Rewrite check:** facts added: none · facts dropped: none · tells left: none
+<!-- If the check found something it couldn't resolve, name it on this line instead of "none", e.g. "facts dropped: the 2019 founding date, cut with the inflated-significance sentence". -->
 ```
+
+### Rewrite self-check
+
+Before showing the clean text:
+
+1. **Facts.** List the facts in the original: names, numbers, dates, quotes, citations, rankings, and claims that things happen together. Confirm each one is in the rewrite or was cut on purpose by a pattern. Confirm the rewrite has no fact the original lacked.
+2. **Tells that survive rewrites.** Re-scan the rewrite for not-X-but-Y in every form (including split across two sentences, "rather than" reframes, and clipped negative tails such as ", no setup"), one-line closers, forced triads, em-dashes, bold labels, staged openers, and the newer short-sentence rhythm. Don't overcorrect into a run of choppy 8–20-word sentences.
+3. Fix what you find, re-check once, then output with the Rewrite check line.
+
+The same check applies, silently, to every per-finding Rewrite line: no invented facts and no surviving tells.
 
 ## Rewriting rules
 
 When proposing a rewrite:
 
-1. **Be specific.** Replace abstract claims with concrete ones. "Robust system" → name what makes it robust, or cut the word.
-2. **Cut, don't substitute.** Most hedges and throat-clearing add nothing. Deletion usually beats rewording.
-3. **Don't replace one AI tell with another.** "Delve into" → not "explore" (also AI default). Try "look at," "read," "study," or remove the verb entirely. "Leverage" → "use." "Utilize" → "use." "Showcase" → "show." "Underscore" → "show" or "prove."
-4. **Keep the user's voice.** If their text has personality, preserve it. Smooth only where AI tells override their voice.
-5. **Shorter is usually better.** AI prose is often 30–50% padding. A good rewrite is often half the length.
-6. **Trade abstract for concrete.** "Industry reports suggest growth" → "Gartner's 2025 report puts growth at 12%." If the writer doesn't have the concrete, that's the real problem to flag.
-7. **Name the actor.** False-agency and agentless-passive sentences get a human subject: "the data tells us" → "I looked at the numbers and…"; "mistakes were made" → who made them. If no specific person fits, "you" puts the reader in the seat.
-8. **In the deep-dive, offer genuinely different strategies** — typically one *cut* option, one *concretize* option, one *restructure* option — so the writer picks what fits their voice instead of accepting a single imposed fix. Build every before → after example from the writer's own sentences, never from invented ones.
-9. **Consult the examples library.** For a pattern you're rewriting, see [references/examples.md](references/examples.md) for worked before → after transformations across registers. Read it during the rewrite / deep-dive phase only — never load it during the pre-scan.
+1. **Never invent facts.** A rewrite may use only facts that are in the text or that the user gave you: no new names, numbers, dates, quotes, sources, customer stories, or first-person experiences. If the best fix needs a detail the text doesn't have, write the plain version from what is there, and put the missing detail in the finding's "Stronger if you have it" line. **Keep every fact** the text had (names, numbers, dates, quotes, citations, rankings, claims that things happen together) unless a pattern calls for cutting it, such as inflated significance. Fiction / narrative register has its own exception; see references/fiction.md.
+2. **Be specific.** Replace abstract claims with concrete ones from the text. "Robust system" → name what the text says makes it robust, or cut the word.
+3. **Cut, don't substitute.** Most hedges and throat-clearing add nothing. Deletion usually beats rewording.
+4. **Don't replace one AI tell with another.** "Delve into" → not "explore" (also AI default). Try "look at," "read," "study," or remove the verb entirely. "Leverage" → "use." "Utilize" → "use." "Showcase" → "show." "Underscore" → "show" or "prove."
+5. **Keep the user's voice.** If their text has personality, preserve it. Smooth only where AI tells override their voice.
+6. **Shorter is usually better.** AI prose is often 30–50% padding. A good rewrite is often half the length.
+7. **Flag the gap; don't fill it.** If the writer lacks the concrete detail, flag the gap; don't fill it. "Industry reports suggest growth" with no source named → cut the attribution or state the claim plainly, and ask for the source and figure in "Stronger if you have it". A missing concrete is often the real problem to flag.
+8. **Name the actor** only when the text says who acted. False-agency and agentless-passive sentences get the human subject the text names: "the data tells us" → "we found" when the writer's own team did the work; "mistakes were made" → the person or team the text says made them. If the text names no one, use "you" to put the reader in the seat, or "we" when the writer's own organisation clearly acted. Never invent a person.
+9. **In the deep-dive, offer genuinely different strategies** — typically one *cut* option, one *concretize* option (using a detail already in the text, or naming the gap), one *restructure* option — so the writer picks what fits their voice instead of accepting a single imposed fix. Build every before → after example from the writer's own sentences, never from invented ones.
+10. **Consult the examples library.** For a pattern you're rewriting, see [references/examples.md](references/examples.md) for worked before → after transformations across registers. Read it during the rewrite / deep-dive phase only — never load it during the pre-scan.
 
 ## What not to flag
 

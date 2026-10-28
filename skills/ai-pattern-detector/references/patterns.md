@@ -58,7 +58,7 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 
 ### Fake-depth formulas (high-signal)
 
-A family of rhetorical templates that dominate AI-assisted writing of every kind — articles, newsletters, blog posts, social posts. Each sets up a strawman or a vague stake, then resolves it with an "insight" that says nothing concrete. On their own these are near-conclusive tells — a human occasionally writes one; AI-assisted text stacks several. Flag each instance, name the template, and in the rewrite force a concrete claim (a name, a number, a real first-hand example) or cut the line entirely.
+A family of rhetorical templates that dominate AI-assisted writing of every kind — articles, newsletters, blog posts, social posts. Each sets up a strawman or a vague stake, then resolves it with an "insight" that says nothing concrete. On their own these are near-conclusive tells — a human occasionally writes one; AI-assisted text stacks several. Flag each instance, name the template, and in the rewrite replace it with a concrete claim from the text, or cut the line; ask for the real example (a name, a number, a first-hand detail) in "Stronger if you have it". Never invent one.
 
 **Quick check — the pull-quote test:** if a line sounds like it was written to be screenshotted or pulled out as a quote card, it's probably one of these formulas. Aphorism-shaped lines with no concrete content are the signature.
 
