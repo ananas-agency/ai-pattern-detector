@@ -7,7 +7,7 @@ description: Use when the user wants writing de-AI'd or checked for AI patterns 
 
 Read the text the user provides and find phrases, words, and structures that read as AI-generated. For each finding, quote the exact span, name the pattern, and propose a concrete rewrite.
 
-The pattern catalog lives in [references/patterns.md](references/patterns.md) — eleven categories drawn from Wikipedia's "Signs of AI writing" reference page, Pangram Labs' detection guide, GPTZero's AI vocabulary index, Grammarly's "Common AI Words" research, Originality.ai's analyses, the Kobak et al. (2024) academic study on excess vocabulary in post-ChatGPT scientific abstracts, the Terčon & Dobrovoljc (2025) survey of AI linguistic characteristics, and a 2025 Computer Science Review survey of detection methods. Sources are listed at the bottom of this file.
+The pattern catalog lives in [references/patterns.md](references/patterns.md) — twelve categories drawn from Wikipedia's *Signs of AI writing*, detection-vendor research (Pangram, GPTZero, Grammarly, Originality.ai), and academic studies (Kobak et al. 2024; Terčon & Dobrovoljc 2025; StoryScope 2026). Full list: [references/sources.md](references/sources.md).
 
 ## Why AI text sounds this way
 
@@ -44,6 +44,7 @@ Infer exactly one register from these signals:
 | **Blog / editorial / newsletter** | long-form prose, personal anecdote, section structure |
 | **Scientific / academic** | citations, methods/passive constructions, hedged claims, domain terminology, "we" for own work, IMRaD structure, figures/tables |
 | **Business / professional** | reports, memos, formal emails, corporate register |
+| **Fiction / narrative** | characters, scenes, quoted dialogue, narration (often past tense), a plot arc |
 | **General** | none of the above dominates (default) |
 
 Rules:
@@ -66,11 +67,11 @@ Before pattern-hunting, compute these numbers from the text — they anchor the 
 | Paragraph uniformity | sentence count per paragraph | every paragraph 3–5 sentences of similar length = Medium tell |
 | Lexical diversity / repetition | unique content words ÷ total content words over a ~150–250-word window (moving-average TTR, to control for length); also note any content word repeated 4+ times that isn't the topic term | TTR < ~0.40 over the window = **Medium** (corroborating only — never conclusive alone). Under-100-words cap applies (→ Weak). |
 
-Notes on computing: when splitting sentences, **treat line breaks as sentence boundaries too** — short-form posts often drop terminal punctuation (one thought per line), and splitting only on `.!?` collapses them into one fake mega-sentence. **On texts under ~100 words, density thresholds are unreliable** (one em-dash in a short post clears the per-150-words bar) — judge function over density there, and cap such metric findings at Weak. Each metric over threshold counts as a finding with the severity given above. **Lexical diversity is a *supporting* signal** (Terčon & Dobrovoljc 2025 survey: AI text runs lower-diversity than human writing): low diversity corroborates other findings but must never move the score on its own — never raise it above Medium, and don't raise it at all if it's the only thing you'd flag.
+Notes on computing: **treat line breaks as sentence boundaries** (short posts often drop end punctuation, and splitting only on `.!?` makes one fake mega-sentence). **Under ~100 words, density thresholds are unreliable**: judge function over density and cap metric findings at Weak. Each metric over threshold is a finding at the severity above. **Lexical diversity is supporting only** (Terčon & Dobrovoljc 2025: AI text runs lower-diversity): it corroborates other findings, never goes above Medium, and is never raised when it's the only thing you'd flag.
 
 ## Step 2 — pattern scan
 
-Read [references/patterns.md](references/patterns.md) **in full** — never scan from memory of it. It holds the eleven pattern categories:
+Read [references/patterns.md](references/patterns.md) **in full** — never scan from memory of it. It holds the twelve pattern categories:
 
 1. Tell-tale vocabulary (verbs, adjectives, nouns, transition stacks, faux-sincerity adverbs)
 2. Stock openers
@@ -83,6 +84,7 @@ Read [references/patterns.md](references/patterns.md) **in full** — never scan
 9. Voice and content tells (vague declaratives, narrator-from-a-distance, agentless passive)
 10. Structural tells
 11. Engagement bait
+12. Narrative tells (fiction register only — read [references/fiction.md](references/fiction.md))
 
 Scan for everything. A single text may contain dozens of tells — flag every instance you find, not one example per category.
 
@@ -186,26 +188,10 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 
 ## Summary of rewrites
 
-Offer to apply everything: "Want me to apply these fixes and output the clean full text?" If yes, run the Rewrite self-check (below this template), then output:
-
-<clean full text: safe versions only, no brackets, nothing invented>
-
-**Details worth adding:** (only if any finding had a "Stronger" line)
-- <missing fact> — would strengthen "<short quote of the sentence>"
-
-**Rewrite check:** facts added: none · facts dropped: none · tells left: none
-<!-- If the check found something it couldn't resolve, name it on this line instead of "none", e.g. "facts dropped: the 2019 founding date, cut with the inflated-significance sentence". -->
+Offer to apply everything: "Want me to apply these fixes and output the clean full text?" If yes, read references/applying-fixes.md and follow it: the rewrite self-check, then the clean text, "Details worth adding", and the Rewrite check line.
 ```
 
-### Rewrite self-check
-
-Before showing the clean text:
-
-1. **Facts.** List the facts in the original: names, numbers, dates, quotes, citations, rankings, and claims that things happen together. Confirm each one is in the rewrite or was cut on purpose by a pattern. Confirm the rewrite has no fact the original lacked.
-2. **Tells that survive rewrites.** Re-scan the rewrite for not-X-but-Y in every form (including split across two sentences, "rather than" reframes, and clipped negative tails such as ", no setup"), one-line closers, forced triads, em-dashes, bold labels, staged openers, and the newer short-sentence rhythm. Don't overcorrect into a run of choppy 8–20-word sentences.
-3. Fix what you find, re-check once, then output with the Rewrite check line.
-
-The same check applies, silently, to every per-finding Rewrite line: no invented facts and no surviving tells.
+Every per-finding Rewrite line gets a silent check too: no fact the original lacked, and no surviving tell (not-X-but-Y in any form, closers, triads, em-dashes, bold labels, staged openers).
 
 ## Rewriting rules
 
@@ -244,6 +230,7 @@ When proposing a rewrite:
 - Dated, era-bound references: slang, memes, in-jokes tied to a year or a subculture.
 - A first-person choice the writer can explain.
 - A genuine aside or self-correction mid-sentence.
+- (Fiction) Emotions named plainly; named real-world references (brands, places, songs, people); direct address to the reader; an ambivalent protagonist. See references/fiction.md.
 
 **Register-specific calibration** (from Step 0 — apply the row matching the inferred register):
 
@@ -253,6 +240,7 @@ When proposing a rewrite:
 - **Blog / editorial / newsletter** — don't flag: "you", contractions, direct address, one earned fragment/punchline. *Weighs heavier here:* narrator-from-a-distance, engagement bait, uncontracted forms.
 - **Scientific / academic** — don't flag: domain terminology, passive voice in methods, "we" for own work, conventional attribution ("the study found"), hedged claims ("may suggest"), standard field nominalization, zero contractions. *Still flag:* business-buzzword & AI-vocab leakage (leverage, landscape, delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
 - **Business / professional** — don't flag: some domain jargon, formal tone, zero contractions. *Still flag:* stacked buzzwords, antithesis, closer clichés, both-sides-itis.
+- **Fiction / narrative** — don't flag: fragments and short sentences used for pacing, em-dashes marking interrupted speech, sensory description, contractions. A phrase inside dialogue is a character's voice: flag it only if the same tell also appears in narration or recurs across different characters. *Still flag:* AI vocabulary in narration (tapestry, testament, "a symphony of…"), significance formulas, antithesis in narration, and the §12 narrative checklist (references/fiction.md). Compute sentence-length metrics on narration only.
 - **General** — the default calibration already described above; no register-specific relaxation.
 
 When uncertain, mark Weak rather than skipping — and note in the verdict that some findings may be intentional.
@@ -261,15 +249,4 @@ When uncertain, mark Weak rather than skipping — and note in the verdict that 
 
 ## Sources
 
-The pattern lists in [references/patterns.md](references/patterns.md) are synthesized from:
-
-- Wikipedia, *Signs of AI writing* — community-curated reference page (re-verified 2026-07)
-- Pangram Labs, *Comprehensive Guide to Spotting AI Writing Patterns*
-- GPTZero, *AI Vocabulary* index (Top phrases by AI-vs-human frequency, updated May 2026)
-- Grammarly, *Decoding AI Language: Common Words and Phrases in AI-Generated Content*
-- Originality.ai, *What Are The Most Obvious ChatGPT AI Sayings?* and *Most Commonly Used ChatGPT Words & Phrases*
-- Kobak, Gonzalez-Marquez, & Horvát (2024), *Delving into ChatGPT usage in academic writing through excess vocabulary* (arXiv:2406.07016) — large-scale analysis of vocabulary shift in 14M PubMed abstracts post-ChatGPT
-- Walter Writes AI, *Most Common ChatGPT Words to Avoid in 2026*
-- Hunting the Muse, *How to spot when writing is AI: 6 elements of a robot's style*
-- Terčon & Dobrovoljc (2025), *Linguistic Characteristics of AI-Generated Text: A Survey* (arXiv:2510.05136) — cross-study synthesis: AI text runs noun/determiner/adposition-heavy, adjective/adverb-light, with lower lexical diversity and a smaller vocabulary range
-- *AI-generated text detection: A comprehensive review of methods, datasets, and applications*, Computer Science Review (2025) (ScienceDirect S1574013725000693) — survey of detection methods, datasets, and applications; reinforces that the AI-feel score is a density-of-evidence measure, not an authorship verdict
+Listed in [references/sources.md](references/sources.md).

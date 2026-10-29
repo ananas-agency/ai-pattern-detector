@@ -57,10 +57,10 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 
 - **Antithesis (the dead giveaway):** "It's not just X — it's Y." / "It's not about X; it's about Y." / "Not only X, but also Y." / "More than just X." / "Beyond mere X." [Strong]
 - **Not-X-but-Y split across sentences:** the same antithesis spread over two sentences so it reads like a correction: "This doesn't mean X. It means Y." / "The point isn't X. The point is Y." [Strong]
-- **Reversed "rather than" reframe:** "a bridge between the two tools rather than a replacement for either" / "Rather than adding a step, it removes one." Wikipedia notes the reversed form is frequent in recent model output, but people write "rather than" constantly: Weak on its own; Medium when it does the reframe work of a not-X-but-Y (setting up a claim nobody made just to correct it). [Weak alone; Medium when it reframes]
+- **Reversed "rather than" reframe:** "a bridge between the two tools rather than a replacement for either" / "Rather than adding a step, it removes one." Frequent in recent model output (Wikipedia), but people write "rather than" constantly: Medium only when it sets up a claim nobody made just to correct it. [Weak alone; Medium when it reframes]
 - **Clipped negative tail:** a sentence that ends on a curt negation tacked on for punch: "…synced straight from your calendar, no setup." / "…one click, no guesswork." [Medium]
-- **Mid-2026 corrective framing:** disclaimers telling the reader how to treat a claim, which Wikipedia reports as near-unheard-of before mid-2026: "should be treated as tradition rather than as evidence", "does not establish that…", "should not be confused with…" (the last is the least reliable of the three). [Medium; "should not be confused with" alone Weak]
-- **Arguing with no one:** answering an objection nobody raised or rejecting an option nobody proposed, usually a leftover from an earlier draft: "I'm not saying…", "To be clear,", "Don't get me wrong,", "This is not to say…", "A tempting approach would be…", "One might be tempted to…", "You might think… but". Keep an objection the text attributes to someone or answers in full, and an alternative a reader would genuinely weigh. Several unrelated ones in a row are a stronger sign than one. [Medium; Strong at 2+]
+- **Mid-2026 corrective framing:** disclaimers telling the reader how to treat a claim, near-unheard-of before mid-2026 (Wikipedia): "should be treated as tradition rather than as evidence", "does not establish that…", "should not be confused with…" (the least reliable). [Medium; "should not be confused with" alone Weak]
+- **Arguing with no one:** answering an objection nobody raised or rejecting an option nobody proposed: "I'm not saying…", "To be clear,", "Don't get me wrong,", "This is not to say…", "A tempting approach would be…", "One might be tempted to…", "You might think… but". Keep an objection the text attributes or answers in full, and an alternative a reader would genuinely weigh. [Medium; Strong at 2+]
 - **Trailing "-ing" add-on:** a participle clause bolted onto a plain fact to make it sound deeper: "…, reflecting the team's deep commitment to quality", "…, highlighting its importance", "…, underscoring the city's role in the region". Keep the fact; keep the clause only when the text supports what it claims. [Medium]
 - **Negate-then-assert:** "no X, no Y, just Z." [Strong]
 - **Far-from reveal:** "Far from being X, it's actually Y." [Medium]
@@ -75,9 +75,9 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 
 ### Fake-depth formulas (high-signal) [Strong]
 
-A family of rhetorical templates that dominate AI-assisted writing of every kind — articles, newsletters, blog posts, social posts. Each sets up a strawman or a vague stake, then resolves it with an "insight" that says nothing concrete. On their own these are near-conclusive tells — a human occasionally writes one; AI-assisted text stacks several. Flag each instance, name the template, and in the rewrite replace it with a concrete claim from the text, or cut the line; ask for the real example (a name, a number, a first-hand detail) in "Stronger if you have it". Never invent one.
+Rhetorical templates that set up a strawman or vague stake and resolve it with an "insight" that says nothing concrete. A person writes one occasionally; AI text stacks them. Flag each, name the template, and rewrite with a concrete claim from the text or cut the line; ask for the real example (a name, a number, a first-hand detail) in "Stronger if you have it". Never invent one.
 
-**Quick check — the pull-quote test:** if a line sounds like it was written to be screenshotted or pulled out as a quote card, it's probably one of these formulas. Aphorism-shaped lines with no concrete content are the signature.
+**The pull-quote test:** a line written to be screenshotted, aphorism-shaped and empty of specifics, is probably one of these.
 
 - **"In a world where…" drama:** "In a world where [scary change], [virtue] becomes [the edge]." → *"In a world where everyone has AI, taste becomes the only edge."* Cinematic setup plus a moral, zero specifics.
 - **"Most people / the few who win" split:** "Most people [lazy thing]. The few who win [disciplined thing]." → *"Most people use AI to move faster. The few who win use it to think deeper."* Moralizing generalization dressed up as insight.
@@ -92,18 +92,9 @@ A family of rhetorical templates that dominate AI-assisted writing of every kind
 
 ### False agency (no human in the sentence) [Medium; Strong at 3+]
 
-Inanimate things performing human verbs. AI defaults to this because it lets the sentence make a claim without naming who did what — agency gets assigned to abstractions, and the prose floats free of any actual person. One instance is Medium; three or more across a text is Strong.
+Inanimate things doing human verbs, so a claim floats free of anyone who made it: "the complaint becomes a fix", "the decision emerges", "the data tells us", "the culture shifts", "the conversation moves toward", "the market rewards", "a bet lives or dies in days", "the strategy writes itself", "the work speaks for itself". One instance is Medium; three or more across a text is Strong.
 
-- "the complaint becomes a fix" — the complaint did nothing; someone fixed it
-- "the decision emerges" — decisions don't emerge; someone decides
-- "the data tells us" — data sits there; someone reads it and draws a conclusion
-- "the culture shifts" — people change behavior
-- "the conversation moves toward" — someone steers it
-- "the market rewards" — buyers pay for things
-- "a bet lives or dies in days" — someone ships the project or kills it
-- "the strategy writes itself" / "the content does the selling" / "the work speaks for itself"
-
-**Rewrite rule:** name the human. "The team fixed it that week" beats "the complaint becomes a fix." If no specific person fits, use "you" to put the reader in the seat. (Don't flag genuinely conventional figures like "the report concludes" or "the study found" in journalistic/academic register — see What not to flag in SKILL.md.)
+**Rewrite rule:** name the human the text names; if it names no one, use "you". Conventional figures like "the report concludes" or "the study found" aren't flagged (see What not to flag in SKILL.md).
 
 ## 4. Hedges and throat-clearing
 
@@ -132,7 +123,7 @@ Self-referential asides — the text narrating its own structure or winking at t
 - "Let me walk you through…" / "In this section, we'll…" / "As we'll see…" [Medium]
 - "The rest of this essay/post explains…" [Medium]
 - "I want to explore…" (announcing intent instead of doing the thing) [Medium]
-- **Text describing itself:** the document narrates its own history, sourcing, or layout instead of its subject: "This function was added to replace…", "compiled from each vendor's site…", "anything unconfirmed is flagged rather than guessed", "the table below compares…" when the reader can see the table. Fine in changelogs, release notes, and migration guides; a source credit the reader can follow stays, and so does a caveat that changes what the reader should do. [Medium; a single description of the page Weak]
+- **Text describing itself:** the document narrates its own history, sourcing, or layout instead of its subject: "This function was added to replace…", "compiled from each vendor's site…", "anything unconfirmed is flagged rather than guessed", "the table below compares…". Fine in changelogs and migration guides; keep a source credit the reader can follow and a caveat that changes what they should do. [Medium; a single description of the page Weak]
 
 ## 6. Closers and conclusions
 
@@ -182,42 +173,34 @@ If the text was lifted directly from a chat, watch for:
 
 ### Em-dash overuse (strong in combination, moderate alone)
 
-Heavy em-dash use (`—`) still points to AI, especially Claude: a July 2026 study cited on Wikipedia found Claude uses more em-dashes than professional writers, while ChatGPT now uses fewer. Since about September 2026 many newer models avoid em-dashes entirely, and Wikipedia now lists em-dash overuse under historical signs, most useful alongside other tells. So the **absence of em-dashes proves nothing**, and density alone is a moderate signal. What a dash does matters more than how many there are.
+Heavy em-dash use (`—`) still points to AI, especially Claude (a July 2026 study cited on Wikipedia found it out-dashes professional writers; ChatGPT now uses fewer). Since about September 2026 many newer models avoid em-dashes entirely, and Wikipedia now lists overuse as a historical sign, most useful alongside other tells. So their **absence proves nothing**, density alone is a moderate signal, and what a dash does matters more than how many there are.
 
-Judge function first, density second:
+- **Density:** more than 1 per ~150 words = Weak; more than 1 per paragraph = Medium; 3+ in one paragraph = Strong. Under 100 words, capped at Weak (SKILL.md Step 1). [Weak / Medium / Strong by density]
+- **Pivot / dramatic use:** a dash used for a reveal or punchline ("the result was unexpected — and remarkable") rather than a real aside. [Medium]
+- **Em-dash + antithesis combo:** "not just X — it's Y" / "more than X — it's Y" / "no longer X — now Y". [Strong]
+- **Stacked em-dashes in one sentence:** a mid-clause pair ("the system — once obsolete — now powers…"); a tell only in dense rotation. [Weak]
+- **Mixed spacing within the same piece:** spaced and unspaced dashes, or `--`, in one text: a copy-paste seam. [Weak]
+- **Em-dash where a period would do:** if `.` loses nothing, the dash was decorative. [Weak]
 
-- **Density:** more than 1 per ~150 words = Weak; more than 1 per paragraph = Medium; 3+ in one paragraph = Strong. Under 100 words, the density finding is capped at Weak (SKILL.md Step 1). [Weak / Medium / Strong by density]
-- **Pivot / dramatic use:** the em-dash used for a reveal or punchline ("It's not X — it's Y", "the result was unexpected — and remarkable", "this changes everything — for everyone") rather than a true parenthetical aside. This is the canonical ChatGPT shape. [Medium]
-- **Em-dash + antithesis combo:** any "not just X — it's Y" / "more than X — it's Y" / "no longer X — now Y" pattern. Almost never appears in unedited human writing. [Strong]
-- **Stacked em-dashes in one sentence:** two em-dashes creating a parenthetical mid-clause ("the system — once considered obsolete — now powers half of…"). Grammatical, but in dense rotation it's an AI rhythm. [Weak]
-- **Mixed spacing within the same piece:** some em-dashes with spaces (` — `), some without (`—`), or some written as double hyphens (`--`). Inconsistency = copy-paste-from-chat. [Weak]
-- **Em-dash where a period would do:** if you can swap `—` for `.` and lose nothing, the em-dash was decorative. AI uses em-dashes to keep sentences flowing; humans tend to just end the sentence. [Weak]
-
-**Rewrite rule:** most AI em-dashes should become **periods, commas, or parentheses** — in that order of preference. Periods create the rhythm AI is trying to fake with em-dashes. Reserve em-dashes for genuine parenthetical asides where commas would be ambiguous. A rewritten piece should have at most 1 em-dash per page of prose. Vary the replacements: turning every dash into a period produces the newer-model short rhythm below.
+**Rewrite rule:** most AI em-dashes become periods, commas, or parentheses; keep a dash only for an aside where commas would be ambiguous, at most one per page. Vary the replacements: turning every dash into a period produces the newer-model short rhythm below.
 
 ### Sentence-length uniformity (the rhythm tell)
 
-Human writing has natural cadence variance. Short sentences crash into long ones. Fragments interrupt complete clauses. A 4-word punch follows a 40-word build. AI-generated prose almost always has **uniform sentence length**, with very little variance from sentence to sentence: older models cluster around 15–25 words, newer ones (mid-2026 on) around 8–20. Uniform length is the tell at any length.
+Human prose varies: a 4-word punch follows a 40-word build. AI prose keeps sentence length **uniform**: older models around 15–25 words, newer ones (mid-2026 on) around 8–20. Uniform length is the tell at any length; the variance, not the average, is the signal (AI: `22, 19, 24, 21, 18`; human: `22, 4, 31, 8, 17`).
 
-Watch for:
+- **No short sentences:** nothing under 8 words across a long piece. [Medium]
+- **No long sentences either:** every sentence at medium length with the same subject → verb → object shape; people throw in the odd 35-word sentence. [Medium]
+- **Newer-model short rhythm:** a run of 8–20-word sentences, almost none under 6 or over 25, many periods and commas, no em-dashes or semicolons (Wikipedia: the GPT-6-era default). In Social post register short lines are native, so only Weak there, and only alongside other tells. [Medium; Weak in social posts]
+- **Comma-stitched compound sentences:** "X, and Y, and Z", with 3+ comma-joined clauses, repeatedly, where periods would give rhythm. [Weak]
+- **Parallel sentence openers:** "This is X. This is Y. This is Z." / "When you X… When you Y…". [Weak]
+- **No single-sentence paragraphs in long-form prose:** essay-register AI runs 3–5 sentences per paragraph and never lets one stand alone (in social posts this inverts; see formulaic fragmentation). [Weak]
+- **Uniform punchy endings:** a short dramatic line closing every paragraph; one earned punchline is human. [Medium]
 
-- **No short sentences.** Scan for sentences under 8 words. If a piece has 10+ paragraphs and not a single short sentence, that uniformity is itself a fingerprint. [Medium]
-- **No long sentences either.** The inverse case — every sentence sits at medium length (12–22 words) with the same internal shape (subject → verb → object → modifier). Real human prose has occasional 35+ word sentences and occasional 3-word ones. [Medium]
-- **Newer-model short rhythm:** a run of 8–20-word sentences, almost none under 6 or over 25 words, with many periods and commas and no em-dashes or semicolons. Wikipedia describes this as the GPT-6-era default ("shorter sentences around a strict 8–20 word limit"). In Social post register, short one-thought lines are native, so this counts only as Weak there and only alongside other tells. [Medium; Weak in social posts]
-- **Comma-stitched compound sentences:** AI loves "X, and Y, and Z" — independent clauses linked with commas and conjunctions where periods would create real rhythm. Look for sentences with 3+ comma-separated clauses appearing repeatedly. [Weak]
-- **Parallel sentence openers:** consecutive sentences starting with the same part of speech or rhythm ("This is X. This is Y. This is Z." or "When you X… When you Y… When you Z…"). [Weak]
-- **No single-sentence paragraphs in long-form prose** — humans deploy a one-sentence paragraph for emphasis or pacing; essay-register AI runs 3–5 complete sentences per paragraph. (In social-post register the tell inverts — see formulaic fragmentation below.) [Weak]
-- **Uniform punchy endings:** every paragraph closes on a short dramatic line. One earned punchline is human pacing; a punchline slot filled at the bottom of every paragraph is a template. [Medium]
-
-**Quick measurement:** count words in 6–8 consecutive sentences. Uniform AI shape looks like `22, 19, 24, 21, 18, 23, 20`. Human writing looks more like `22, 4, 31, 8, 17, 3, 28`. The variance — not the average — is the signal.
-
-**Rewrite rule:** break long sentences into two or three short ones, and join some short ones into a longer build; don't chop everything into the 8–20-word band. Let a single sentence stand alone as a paragraph when the point deserves the weight. Target a sentence-length variance where the shortest sentence is at most 1/3 the length of the longest.
+**Rewrite rule:** split some long sentences and join some short ones; don't chop everything into the 8–20-word band. Let a sentence stand alone as a paragraph when the point earns it. Aim for the shortest sentence at most 1/3 the length of the longest.
 
 ### Formulaic fragmentation (the fragment tell cuts both ways) [Medium]
 
-Fragments used to be a human signal, and *organic* fragments still are — an irregular, unpredictable fragment dropped where the emphasis genuinely lands. But current models writing in social-post register overuse **formulaic fragments**: fragments that fill a recognizable template slot rather than interrupting naturally. Judge the shape, not the fragment itself.
-
-Flag these fragment formulas:
+*Organic* fragments, dropped where emphasis genuinely lands, are human. Current models in social-post register overuse **formulaic** ones that fill a template slot. Judge the shape, not the fragment:
 
 - **"[Noun]. That's it. That's the [thing]."** — performative simplicity ("Consistency. That's it. That's the strategy.")
 - **Staccato noun triple:** "Speed. Quality. Cost." — three one-word sentences as dramatic setup, usually followed by a reveal.
@@ -227,23 +210,17 @@ Flag these fragment formulas:
 - **Spaced-out emphasis:** "every. single. day." (periods between words) or one word in ALL CAPS for emphasis. See also dramatic closers in §6.
 - **Recurring one-word verdict lines:** "Wrong." / "Exactly." / "Every time." as a paragraph opener or closer. One of these in a piece is human emphasis; one per paragraph is a template firing.
 
-**How to tell organic from formulaic:** organic fragments are unpredictable — you couldn't have guessed one was coming. Formulaic fragments fill a slot you can see coming (after a list, before a reveal, at the bottom of every paragraph). If you can name the template, it's a tell.
+**Organic vs. formulaic:** you couldn't have predicted an organic fragment; a formulaic one fills a slot you can see coming (after a list, before a reveal, at every paragraph's end). If you can name the template, it's a tell.
 
-**Rewrite rule:** don't strip all fragments — that creates the opposite tell (schoolbook uniformity). Cut the templated ones, keep or add one genuinely irregular fragment where the emphasis is earned.
+**Rewrite rule:** cut the templated fragments but don't strip them all (that creates schoolbook uniformity); keep one irregular fragment where the emphasis is earned.
 
 ### List-cardinality tell [Weak]
 
-AI strongly prefers **lists of 3, 5, 7, or 10**. It almost never produces lists of 2, 4, 6, 8, 9, 11, or 13. If a piece has multiple lists and every single one is 3, 5, 7, or 10 items long, that uniformity is itself a fingerprint — even when each individual list is reasonable.
+AI prefers lists of **3, 5, 7, or 10** (three by default, five for listicles, seven for tips, ten for "best of"). One such list is nothing; every list in a piece landing on those numbers is a fingerprint. Also flag:
 
-- **Three** is the default (rule-of-three / tricolon — also embedded in prose: "faster, smarter, and more meaningful")
-- **Five** is the listicle default ("5 ways to…", "5 steps to…")
-- **Seven** for "tips" and "reasons" ("7 tips", "7 reasons why…")
-- **Ten** for "best" / "ultimate" listicles ("10 best practices", "Top 10…")
-
-Also flag:
-- **Sub-bullets repeating the same cardinality** as their parent (a 3-item list where each item has 3 sub-bullets)
-- **Parallel grammatical structure** across every item (every bullet starts with the same part of speech and is roughly the same length)
-- **Lists where prose would be more natural** — three connected sentences turned into three bullets for no reason
+- **Sub-bullets repeating the parent's cardinality** (three items with three sub-bullets each)
+- **Parallel grammatical structure** across every item (same part of speech, same length)
+- **Lists where prose would be more natural** (three connected sentences turned into bullets)
 
 ## 9. Voice and content tells
 
@@ -261,7 +238,7 @@ Also flag:
 - **Vague declaratives:** sentences that announce importance without naming the thing — "The implications are significant." / "The stakes are high." / "The reasons are structural." / "The consequences are real." / "This is the deepest problem." Kin: telling instead of showing — "This is genuinely hard." / "This is what leadership actually looks like." / "…actually matters." If a sentence says something is important, deep, or hard without showing the specific thing, the specific thing is missing. Medium each; Strong when two or more stack. [Medium; Strong at 2+]
 - **Narrator-from-a-distance:** disembodied observation floating above the scene — "Nobody designed this." / "People tend to…" / "This happens because…" / "This is why…" as a recurring lecturer move. Armchair-sociologist voice with no one in the room. The fix puts the reader in the scene: "You don't sit down one day and decide to…" beats "Nobody designed this." [Medium]
 - **Agentless passive:** "Mistakes were made." / "It is believed that…" / "The decision was reached." Passive voice that hides who acted. Weak individually (plenty of human writing is passive); Medium when the whole piece avoids naming actors — and check whether it pairs with false agency (§3), which is the same evasion wearing an active voice. [Weak; Medium when the whole piece avoids actors]
-- **Nominalization / noun-heavy register:** AI defaults to a formal, noun-stacked register — nominalizing verbs and adjectives ("the implementation of", "a reduction in", "the utilization of") and stacking determiners + prepositions ("the analysis of the impact of the changes on the system"). Cross-study surveys find AI text runs noun-, determiner-, and preposition-heavy and adjective/adverb-*light* vs. human writing. **Calibration:** do NOT read sparse adjectives/adverbs as a human signal — adjective-light *and* noun-heavy is the tell. This is not a contradiction of §1 (which flags specific AI-preferred adjectives when they appear); this flags the overall nominalized shape. Medium; drops to Weak in scientific/academic register where some nominalization is conventional (see "What not to flag" in SKILL.md). **Rewrite:** un-nominalize ("the utilization of X" → "using X") and name a verb + actor. [Medium; Weak in Scientific / academic register]
+- **Nominalization / noun-heavy register:** verbs and adjectives turned into nouns ("the implementation of", "a reduction in") and stacked determiners and prepositions ("the analysis of the impact of the changes on the system"). Surveys find AI text noun-, determiner-, and preposition-heavy and adjective/adverb-*light*, so don't read sparse adjectives as a human signal: light *and* noun-heavy is the tell (this flags the overall shape; §1 flags specific words). Weak in scientific register, where some nominalization is conventional. **Rewrite:** un-nominalize ("the utilization of X" → "using X") and name a verb and actor. [Medium; Weak in Scientific / academic register]
 
 ## 10. Structural tells
 
@@ -285,3 +262,7 @@ Formulaic interaction-farming closers. AI-generated social posts default to thes
 - "Link in comments" / "I'll DM you the guide" lead-magnet bait [Strong]
 
 **Rewrite rule:** replace bait with a genuine, specific question that someone could answer with substance, or just end the post. When matching these, match whole phrases — "Agree?" as a closer is bait; the word "agree" inside "I disagree with this take" is not.
+
+## 12. Narrative tells
+
+Fiction / narrative register only. Read [fiction.md](fiction.md) when Step 0 picks that register: it holds the narrative-default checklist (one cluster finding), the human-leaning signs, and the fiction rewrite exception.

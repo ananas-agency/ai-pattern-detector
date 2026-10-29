@@ -3,9 +3,9 @@
 A [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin that scans text for
 telltale AI-writing patterns and proposes specific rewrites to make it sound human.
 
-It checks eleven categories of tells — telltale vocabulary, stock openers, signature
+It checks twelve categories of tells — telltale vocabulary, stock openers, signature
 constructions, hedges, meta-commentary, closers, GPT artifacts, punctuation and formatting,
-voice, structure, and engagement bait — scores the text on a 0–100 "AI-feel" scale, and
+voice, structure, engagement bait, and story-level narrative tells in fiction — scores the text on a 0–100 "AI-feel" scale, and
 gives you concrete before → after rewrites for every finding.
 
 It first identifies the text's register — social post, landing page, product description, blog,
@@ -94,7 +94,7 @@ skills/
   ai-pattern-detector/
     SKILL.md                    # workflow: register, metrics, scoring, output format
     references/
-      patterns.md               # the eleven-category pattern catalog
+      patterns.md               # the twelve-category pattern catalog
       examples.md               # worked before → after rewrites, by pattern
     CHANGELOG.md
 ```
