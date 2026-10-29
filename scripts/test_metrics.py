@@ -111,6 +111,8 @@ class RepoCatalogTests(unittest.TestCase):
         for key in ("verbs", "adjectives", "nouns", "transition", "faux-sincerity", "newer-model"):
             self.assertTrue(any(key in label.lower() and words for label, words in lists.items()), key)
         self.assertTrue(any("quietly" in words for label, words in lists.items() if "newer-model" in label.lower()))
+        # "world (of)" in the catalog means the phrase "world of"; the bare word must not count as a tell.
+        self.assertFalse(any("world" in words for words in lists.values()))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,45 @@
+name: Bad result
+description: The scan or a rewrite got something wrong.
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What went wrong
+      options:
+        - False positive (human writing was flagged)
+        - Missed tell
+        - A rewrite invented or dropped a fact
+        - A rewrite kept a tell
+        - The score seems off
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input
+      description: The text you scanned. Strip out anything confidential.
+    validations:
+      required: true
+  - type: textarea
+    id: call
+    attributes:
+      label: How you ran it
+      description: The tool and model, and what you asked for.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: What the skill returned. The relevant part is enough.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should have done
+      description: Quote the line that's wrong and say what you expected instead.
+    validations:
+      required: true
