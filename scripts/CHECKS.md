@@ -47,4 +47,4 @@ README.md's example output has an `**AI-feel score:** S/100 — <band>` line and
 
 ## 9. Measurement-helper word lists
 
-Added with the measurement helper (`skills/ai-pattern-detector/scripts/metrics.py`). Until that file exists, skip this check.
+If `skills/ai-pattern-detector/scripts/metrics.py` exists, the measurement helper must be able to read the word lists in patterns.md §1. Each sublist there is a line starting with a bold label, and the next non-empty line holds its comma-separated words. There must be a non-empty sublist whose label contains each of: "verbs", "adjectives", "nouns", "Transition", "Faux-sincerity", and "Newer-model" (any capitalisation). If metrics.py doesn't exist, skip this check.

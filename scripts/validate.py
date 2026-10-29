@@ -7,6 +7,7 @@ run the same list with the /check-release command in Claude Code.
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import re
 import sys
@@ -190,6 +191,24 @@ def check_readme_score(readme: str) -> list[str]:
     return []
 
 
+REQUIRED_WORD_LISTS = ("verbs", "adjectives", "nouns", "transition", "faux-sincerity", "newer-model")
+
+
+def check_metrics_parse(patterns: str) -> list[str]:
+    """CHECKS.md #9"""
+    spec = importlib.util.spec_from_file_location("metrics", SKILL_DIR / "scripts" / "metrics.py")
+    metrics = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(metrics)
+    lists = metrics.load_word_lists(patterns)
+    missing = [
+        key for key in REQUIRED_WORD_LISTS
+        if not any(key in label.lower() and words for label, words in lists.items())
+    ]
+    if missing:
+        return [f"patterns.md §1: metrics.py finds no word list for: {', '.join(missing)}"]
+    return []
+
+
 def configure_output() -> None:
     """Print UTF-8 even where the console defaults to a legacy code page (Windows cp1252)."""
     sys.stdout.reconfigure(encoding="utf-8")
@@ -227,6 +246,8 @@ def main() -> int:
     errors += check_strength_tags(patterns)
     errors += check_examples(examples, count) if examples is not None else ["missing references/examples.md"]
     errors += check_readme_score(readme)
+    if (SKILL_DIR / "scripts" / "metrics.py").exists():
+        errors += check_metrics_parse(patterns)
 
     for error in errors:
         print(f"ERROR: {error}")

@@ -67,6 +67,8 @@ Before pattern-hunting, compute these numbers from the text — they anchor the 
 | Paragraph uniformity | sentence count per paragraph | every paragraph 3–5 sentences of similar length = Medium tell |
 | Lexical diversity / repetition | unique content words ÷ total content words over a ~150–250-word window (moving-average TTR, to control for length); also note any content word repeated 4+ times that isn't the topic term | TTR < ~0.40 over the window = **Medium** (corroborating only — never conclusive alone). Under-100-words cap applies (→ Weak). |
 
+**Measured, if Python is available.** Save the text to a temporary file and run `python3 <this skill's base directory>/scripts/metrics.py <file>` (if that fails, `python`); in the Fiction / narrative register add `--narration-only`. Use its numbers as given: it only counts, so thresholds and strengths still come from this table. If neither command runs or the script errors, estimate by hand with the rules below. Never install anything; the first run may ask permission. End the Metrics line with `· measured` or `· estimated`.
+
 Notes on computing: **treat line breaks as sentence boundaries** (short posts often drop end punctuation, and splitting only on `.!?` makes one fake mega-sentence). **Under ~100 words, density thresholds are unreliable**: judge function over density and cap metric findings at Weak. Each metric over threshold is a finding at the severity above. **Lexical diversity is supporting only** (Terčon & Dobrovoljc 2025: AI text runs lower-diversity): it corroborates other findings, never goes above Medium, and is never raised when it's the only thing you'd flag.
 
 ## Step 2 — pattern scan
@@ -132,7 +134,7 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 
 **Register:** <inferred register> — <one clause on how it calibrated the scan>
 
-**Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words
+**Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words · <measured | estimated>
 <!-- On texts under ~100 words, state densities as "N (short text — density unreliable)" rather than forcing a per-150 figure. -->
 <!-- "Total" = number of findings below. The deep-dive groups those findings by distinct pattern, so it lists fewer blocks than the Total — that is expected, not a miscount. -->
 <!-- Report the sentence-length variation figure here; it carries the metronome tell, not the bare range. -->
@@ -240,7 +242,7 @@ When proposing a rewrite:
 - **Blog / editorial / newsletter** — don't flag: "you", contractions, direct address, one earned fragment/punchline. *Weighs heavier here:* narrator-from-a-distance, engagement bait, uncontracted forms.
 - **Scientific / academic** — don't flag: domain terminology, passive voice in methods, "we" for own work, conventional attribution ("the study found"), hedged claims ("may suggest"), standard field nominalization, zero contractions. *Still flag:* business-buzzword & AI-vocab leakage (leverage, landscape, delve, tapestry, nuanced), fake-depth formulas, em-dash overuse.
 - **Business / professional** — don't flag: some domain jargon, formal tone, zero contractions. *Still flag:* stacked buzzwords, antithesis, closer clichés, both-sides-itis.
-- **Fiction / narrative** — don't flag: fragments and short sentences used for pacing, em-dashes marking interrupted speech, sensory description, contractions. A phrase inside dialogue is a character's voice: flag it only if the same tell also appears in narration or recurs across different characters. *Still flag:* AI vocabulary in narration (tapestry, testament, "a symphony of…"), significance formulas, antithesis in narration, and the §12 narrative checklist (references/fiction.md). Compute sentence-length metrics on narration only.
+- **Fiction / narrative** — don't flag: fragments and short sentences used for pacing, em-dashes marking interrupted speech, sensory description, contractions. A phrase inside dialogue is a character's voice: flag it only if the same tell also appears in narration or recurs across different characters. *Still flag:* AI vocabulary in narration (tapestry, testament, "a symphony of…"), significance formulas, antithesis in narration, and the §12 narrative checklist (references/fiction.md). Compute sentence-length metrics on narration only (`--narration-only` when measuring).
 - **General** — the default calibration already described above; no register-specific relaxation.
 
 When uncertain, mark Weak rather than skipping — and note in the verdict that some findings may be intentional.

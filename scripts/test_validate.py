@@ -11,6 +11,7 @@ from validate import (
     REGISTERS,
     check_examples,
     check_marketplace,
+    check_metrics_parse,
     check_readme_score,
     check_section_refs,
     check_sections,
@@ -150,6 +151,24 @@ class ReadmeScoreTests(unittest.TestCase):
 
     def test_missing(self):
         self.assertEqual(len(check_readme_score("no example here")), 1)
+
+
+class MetricsParseTests(unittest.TestCase):
+    LABELS = [
+        "High-signal verbs",
+        "High-signal adjectives",
+        "High-signal nouns / quantifiers",
+        "Transition / adverb stacks",
+        "Faux-sincerity adverbs",
+        "Newer-model words",
+    ]
+
+    def test_ok(self):
+        pat = "## 1. Vocab\n" + "".join(f"**{label}:**\na, b\n\n" for label in self.LABELS) + "## 2. Next\n"
+        self.assertEqual(check_metrics_parse(pat), [])
+
+    def test_missing(self):
+        self.assertEqual(len(check_metrics_parse("## 1. Vocab\n**High-signal verbs:**\na, b\n")), 1)
 
 
 if __name__ == "__main__":
