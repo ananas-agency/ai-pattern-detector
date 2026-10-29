@@ -64,14 +64,13 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - **Trailing "-ing" add-on:** a participle clause bolted onto a plain fact to make it sound deeper: "…, reflecting the team's deep commitment to quality", "…, highlighting its importance", "…, underscoring the city's role in the region". Keep the fact; keep the clause only when the text supports what it claims. [Medium]
 - **Negate-then-assert:** "no X, no Y, just Z."
 - **Far-from reveal:** "Far from being X, it's actually Y."
-- **Inclusive whether:** "Whether you're a beginner or a pro…" / "Whether you're X, Y, or Z…"
-- **From-to range:** "From beginners to experts…" / "From X to Y…"
+- **Inclusive whether:** "Whether you're a beginner or a pro…" / "Whether you're X, Y, or Z…". The same audience sweep without "whether" counts too: "From beginners to experts…". (A plain "from X to Y" range is ordinary writing and isn't flagged; Wikipedia no longer lists it.)
 - **Rule of three / tricolon:** three parallel adjectives, verbs, or short clauses — especially when the third item is more abstract than the first two ("…faster, smarter, and more meaningful").
 - **Pivot em-dash:** dramatic mid-sentence reveal via em-dash, repeated across paragraphs.
 - **Significance/legacy formula:** "stands as a testament to," "serves as a reminder of," "marks a pivotal moment," "represents a significant shift," "leaves an indelible mark," "highlights its importance," "underscores its significance," "reflects broader trends," "symbolizes enduring legacy," "contributing to," "setting the stage for."
 - **Reveal-close:** "And that's the real power of X." / "That's where X comes in."
 - **Self-answered question:** a rhetorical question resolved in the very next breath — "The result? X." / "The catch? Y." / "What if I told you…? Here's what I mean:" / "Sound familiar? That's because…" The question exists only to set up the answer; no reader was meant to think.
-- **Elegant variation:** synonym swapping rather than pronoun reuse within a paragraph (the protagonist → the character → the key player).
+- **Elegant variation:** synonym swapping rather than pronoun reuse within a paragraph (the protagonist → the character → the key player). Mostly older models, whose repetition penalty pushed them away from repeats; Wikipedia now lists it as a historical sign, and it's also an old newsroom habit. It points the opposite way from the low-lexical-diversity metric in SKILL.md Step 1, which stays as a supporting signal: different models lean different ways. [Weak]
 - **Copula avoidance (the is/are dodge):** replacing plain "is / are / has" with elaborate stand-ins — "serves as," "stands as," "functions as," "represents," "boasts," "features," "maintains," "offers." One is fine; a piece that never just says "is" is a tell. (Wikipedia's *Signs of AI writing* calls this the avoidance of simple is/are.)
 
 ### Fake-depth formulas (high-signal)
@@ -181,29 +180,30 @@ If the text was lifted directly from a chat, watch for:
 - **Decoration:** emoji or arrows (🚀 💡 ✅ →) used as bullet or heading markers; a horizontal rule between every section; a heading repeated in its own first sentence ("## Pricing" then "Price matters."); headings written for effect instead of naming what the section holds ("Where it all comes together"). One emoji in a social post is fine; an emoji on every line or bullet is the tell, in any register. [Medium]
 - **Hyphen kept after the noun:** compound modifiers keep their hyphen in every position: "the report is high-quality", "the process is well-documented". After the noun they lose it ("the report is high quality"). Words the dictionary always hyphenates (self-employed, all-inclusive) keep it everywhere. [Weak]
 
-### Em-dash overuse (the signature punctuation tell)
+### Em-dash overuse (strong in combination, moderate alone)
 
-The em-dash (`—`) is the single most reliable AI fingerprint in punctuation. ChatGPT-default prose uses em-dashes roughly 5–10× more often than typical human writing — often more than once per paragraph. Most humans go entire essays without one. If a piece has em-dashes on every screen, the writer either has an unusual stylistic habit or is pasting from a chat.
+Heavy em-dash use (`—`) still points to AI, especially Claude: a July 2026 study cited on Wikipedia found Claude uses more em-dashes than professional writers, while ChatGPT now uses fewer. Since about September 2026 many newer models avoid em-dashes entirely, and Wikipedia now lists em-dash overuse under historical signs, most useful alongside other tells. So the **absence of em-dashes proves nothing**, and density alone is a moderate signal. What a dash does matters more than how many there are.
 
-Flag every em-dash and judge density first, function second:
+Judge function first, density second:
 
-- **Density:** more than ~1 em-dash per ~150 words is suspicious; more than 1 per paragraph is a strong tell; 3+ in a single paragraph is near-conclusive.
+- **Density:** more than 1 per ~150 words = Weak; more than 1 per paragraph = Medium; 3+ in one paragraph = Strong. Under 100 words, the density finding is capped at Weak (SKILL.md Step 1). [Weak / Medium / Strong by density]
 - **Pivot / dramatic use:** the em-dash used for a reveal or punchline ("It's not X — it's Y", "the result was unexpected — and remarkable", "this changes everything — for everyone") rather than a true parenthetical aside. This is the canonical ChatGPT shape.
 - **Em-dash + antithesis combo:** any "not just X — it's Y" / "more than X — it's Y" / "no longer X — now Y" pattern. Almost never appears in unedited human writing.
 - **Stacked em-dashes in one sentence:** two em-dashes creating a parenthetical mid-clause ("the system — once considered obsolete — now powers half of…"). Grammatical, but in dense rotation it's an AI rhythm.
 - **Mixed spacing within the same piece:** some em-dashes with spaces (` — `), some without (`—`), or some written as double hyphens (`--`). Inconsistency = copy-paste-from-chat.
 - **Em-dash where a period would do:** if you can swap `—` for `.` and lose nothing, the em-dash was decorative. AI uses em-dashes to keep sentences flowing; humans tend to just end the sentence.
 
-**Rewrite rule:** most AI em-dashes should become **periods, commas, or parentheses** — in that order of preference. Periods create the rhythm AI is trying to fake with em-dashes. Reserve em-dashes for genuine parenthetical asides where commas would be ambiguous. A rewritten piece should have at most 1 em-dash per page of prose.
+**Rewrite rule:** most AI em-dashes should become **periods, commas, or parentheses** — in that order of preference. Periods create the rhythm AI is trying to fake with em-dashes. Reserve em-dashes for genuine parenthetical asides where commas would be ambiguous. A rewritten piece should have at most 1 em-dash per page of prose. Vary the replacements: turning every dash into a period produces the newer-model short rhythm below.
 
 ### Sentence-length uniformity (the rhythm tell)
 
-Human writing has natural cadence variance. Short sentences crash into long ones. Fragments interrupt complete clauses. A 4-word punch follows a 40-word build. AI-generated prose almost always has **uniform sentence length**, typically clustered in the 15–25-word range with very little variance from sentence to sentence.
+Human writing has natural cadence variance. Short sentences crash into long ones. Fragments interrupt complete clauses. A 4-word punch follows a 40-word build. AI-generated prose almost always has **uniform sentence length**, with very little variance from sentence to sentence: older models cluster around 15–25 words, newer ones (mid-2026 on) around 8–20. Uniform length is the tell at any length.
 
 Watch for:
 
 - **No short sentences.** Scan for sentences under 8 words. If a piece has 10+ paragraphs and not a single short sentence, that uniformity is itself a fingerprint.
 - **No long sentences either.** The inverse case — every sentence sits at medium length (12–22 words) with the same internal shape (subject → verb → object → modifier). Real human prose has occasional 35+ word sentences and occasional 3-word ones.
+- **Newer-model short rhythm:** a run of 8–20-word sentences, almost none under 6 or over 25 words, with many periods and commas and no em-dashes or semicolons. Wikipedia describes this as the GPT-6-era default ("shorter sentences around a strict 8–20 word limit"). In Social post register, short one-thought lines are native, so this counts only as Weak there and only alongside other tells. [Medium; Weak in social posts]
 - **Comma-stitched compound sentences:** AI loves "X, and Y, and Z" — independent clauses linked with commas and conjunctions where periods would create real rhythm. Look for sentences with 3+ comma-separated clauses appearing repeatedly.
 - **Parallel sentence openers:** consecutive sentences starting with the same part of speech or rhythm ("This is X. This is Y. This is Z." or "When you X… When you Y… When you Z…").
 - **No single-sentence paragraphs in long-form prose** — humans deploy a one-sentence paragraph for emphasis or pacing; essay-register AI runs 3–5 complete sentences per paragraph. (In social-post register the tell inverts — see formulaic fragmentation below.)
@@ -211,7 +211,7 @@ Watch for:
 
 **Quick measurement:** count words in 6–8 consecutive sentences. Uniform AI shape looks like `22, 19, 24, 21, 18, 23, 20`. Human writing looks more like `22, 4, 31, 8, 17, 3, 28`. The variance — not the average — is the signal.
 
-**Rewrite rule:** break long sentences into two or three short ones. Let a single sentence stand alone as a paragraph when the point deserves the weight. Target a sentence-length variance where the shortest sentence is at most 1/3 the length of the longest.
+**Rewrite rule:** break long sentences into two or three short ones, and join some short ones into a longer build; don't chop everything into the 8–20-word band. Let a single sentence stand alone as a paragraph when the point deserves the weight. Target a sentence-length variance where the shortest sentence is at most 1/3 the length of the longest.
 
 ### Formulaic fragmentation (the fragment tell cuts both ways)
 
