@@ -94,6 +94,8 @@ For each finding, assign one of:
 - **Medium** — common in human writing too, but suspicious in this density, position, or combination. Examples: a single false-agency sentence, a vague declarative, a self-answered question, a lone throat-clearing hedge ("it's worth noting", "make no mistake"). A hedge rises to Strong only when stacked in the same span with any other tell (e.g., an AI adjective, a stock opener, or a closer cliché — the list is illustrative, not exhaustive), scored under the one-span rule below.
 - **Weak** — only a tell alongside several others: a single em-dash, one "robust", an agentless passive, a faux-sincerity adverb cluster of three.
 
+**Default strengths.** Every pattern in patterns.md carries a default strength tag (`[Strong]`, `[Medium]`, `[Weak]`, or a rule like `[Medium; Strong at 3+]`). Use the pattern's default strength unless density, position, or register (Step 0) clearly moves it; say why in the finding when you move it.
+
 **One span, multiple patterns → one finding at the highest severity.** When a single quoted span stacks several tells (e.g., a stock opener that also contains two telltale verbs), raise *one* finding, list all the patterns in its Pattern line, and score it at the highest severity any of them earns. Don't split it into several findings — that inflates the counts and the score. The pattern deep-dive still treats each distinct pattern separately; the per-finding count does not.
 
 **Severity tie-break:** if a span matches both a Strong-tier and a lower-tier pattern, it's Strong. Fake-depth formulas (patterns.md §3) win over the generic "self-answered question / vague declarative" Medium examples — score the formula.
