@@ -1,6 +1,10 @@
 # Marketing website — kept local, not part of the skill repo
 website/
 
+# Development plans, specs, and agent workspaces — kept local
+docs/superpowers/
+.superpowers/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
