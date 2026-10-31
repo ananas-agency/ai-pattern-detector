@@ -28,3 +28,16 @@ All 22 cases passed on the first full run. No skill text changed during the run.
 | 20 | PASS | All six seeded patterns found at their catalog defaults. 58/100. |
 | 21 | PASS | Metrics line ends `· measured`; 166 words, 11 sentences, 3 em-dashes, matching `metrics.py`. 90/100. |
 | 22 | PASS | Metrics line ends `· estimated`; no installation mentioned. 90/100. |
+
+## Final-review runs (2026-10-31)
+
+After the whole-branch review, cases 23 and 24 were added and case 12's expectation was extended. Each was first run on the unchanged skill text. The fixes then changed the quotation rule in "What not to flag", so case 23 was run again and cases 04, 07, and 11 were re-run as regression checks. The other cases were not re-run. The remaining fixes changed tooling (`metrics.py` phrase counting, a release check) or one example word, or removed two exact duplicates from the skill text.
+
+| # | Before fixes | After fixes | Note |
+|---|--------------|-------------|------|
+| 23 | FAIL | PASS | Before: every quoted tell exempt, 2/100. After: testament and pivotal-moment formulas and the not-just-X antithesis found inside the quotes; no Rewrite line changes a quote's words. 55/100. |
+| 24 | PASS | — | Script measured 2.98 per 100; the model excluded the four literal "critical value" hits (0.6 per 100) and gave no vocabulary finding. 0/100. |
+| 12 | PASS | — | No em-dash density finding; the dash pair in one paragraph was read as a real aside. 10/100. |
+| 04 | — | PASS | Quoted and listed phrases still treated as mentions. 11/100. |
+| 07 | — | PASS | All five facts in the clean text, the quote word for word; `facts added: none · facts dropped: none`. 98/100. |
+| 11 | — | PASS | Verdict still notes the text predates ChatGPT. The spokesperson quotes are now scanned, so the style-overlap score rose from 9 to 57/100. |
