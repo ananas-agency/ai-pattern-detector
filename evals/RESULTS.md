@@ -41,3 +41,14 @@ After the whole-branch review, cases 23 and 24 were added and case 12's expectat
 | 04 | — | PASS | Quoted and listed phrases still treated as mentions. 11/100. |
 | 07 | — | PASS | All five facts in the clean text, the quote word for word; `facts added: none · facts dropped: none`. 98/100. |
 | 11 | — | PASS | Verdict still notes the text predates ChatGPT. The spokesperson quotes are now scanned, so the style-overlap score rose from 9 to 57/100. |
+
+## Comparison follow-up runs (2026-10-31)
+
+A side-by-side test of 1.6 and 1.7 on three outside texts led to two changes. `metrics.py` no longer counts a Markdown heading as a sentence (covered by a unit test). SKILL.md now says to measure prose only, without labels, captions, or source lines, and each deep-dive block names the findings it covers. Case 25 was added for both. Case 21 was re-run because its expectation depends on what the helper is given; the other cases were not re-run.
+
+| # | Run | Result | Note |
+|---|-----|--------|------|
+| 25 | Unchanged text | FAIL | Metrics measured prose only (15 sentences, ~0.05) and the uniformity finding appeared, but no deep-dive heading names its findings. 14/100. |
+| 25 | After the deep-dive edit | FAIL | Deep-dive headings name their findings, but the Metrics line used the whole file (36 sentences, ~0.73) and gave the prose figures only in a note. 20/100. |
+| 25 | After the prose-only edit | PASS | Metrics: 275 words (prose only), 15 sentences, 17–20, ~0.05; uniformity finding at Medium; every deep-dive heading names its findings. 20/100. |
+| 21 | After both edits | PASS | 166 words, 11 sentences, 3 em-dashes, matching `metrics.py`; deep-dive headings name their findings. 97/100. |

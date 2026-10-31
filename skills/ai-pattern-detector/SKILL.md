@@ -67,7 +67,7 @@ Before pattern-hunting, compute these numbers from the text — they anchor the 
 | Paragraph uniformity | sentence count per paragraph | every paragraph 3–5 sentences of similar length = Medium tell |
 | Lexical diversity / repetition | unique content words ÷ total content words over a ~150–250-word window (moving-average TTR, to control for length); also note any content word repeated 4+ times that isn't the topic term | TTR < ~0.40 over the window = **Medium** (corroborating only — never conclusive alone). Under-100-words cap applies (→ Weak). |
 
-**Measured, if Python is available.** Save the text to a temporary file and run `python3 <this skill's base directory>/scripts/metrics.py <file>` (if that fails, `python`); in the Fiction / narrative register add `--narration-only`. Use its numbers as given: it only counts, so thresholds and strengths still come from this table. If neither command runs or the script errors, estimate by hand with the rules below. Never install anything; the first run may ask permission. End the Metrics line with `· measured` or `· estimated`.
+**Measure prose only,** without headings, card or button labels, captions, or source lines (they hide uniform rhythm). **Measured, if Python is available.** Save that prose to a temporary file and run `python3 <this skill's base directory>/scripts/metrics.py <file>` (if that fails, `python`); in the Fiction / narrative register add `--narration-only`. Use its numbers as given: it only counts, so thresholds and strengths still come from this table. If neither command runs or the script errors, estimate by hand with the rules below. Never install anything; the first run may ask permission. End the Metrics line with `· measured` or `· estimated`.
 
 Notes on computing: **treat line breaks as sentence boundaries** (short posts often drop end punctuation, and splitting only on `.!?` makes one fake mega-sentence). **Under ~100 words, density thresholds are unreliable**: judge function over density and cap metric findings at Weak. Each metric over threshold is a finding at the severity above. **Lexical diversity is supporting only** (Terčon & Dobrovoljc 2025: AI text runs lower-diversity): it corroborates other findings, never goes above Medium, and is never raised when it's the only thing you'd flag.
 
@@ -136,7 +136,6 @@ The weights are heuristic — the score is a density measure of evidence, not a 
 
 **Metrics:** NNN words · NN sentences · sentence length N–NN (shortest–longest), variation ~N.NN <even/varied> · N contractions · N em-dashes (1 per ~NNN words) · telltale vocab N per 100 words · <measured | estimated>
 <!-- On texts under ~100 words, state densities as "N (short text — density unreliable)" rather than forcing a per-150 figure. -->
-<!-- "Total" = number of findings below. The deep-dive groups those findings by distinct pattern, so it lists fewer blocks than the Total — that is expected, not a miscount. -->
 <!-- Report the sentence-length variation figure here; it carries the metronome tell, not the bare range. -->
 
 
@@ -173,9 +172,9 @@ Every finding carries all four lines — **Pattern, Severity, Rewrite, Why this 
 
 ## Pattern deep-dive — what each case is and how to de-AI it
 
-(One block per DISTINCT pattern found, ordered by impact: highest-severity, most-instances first. This is the detailed close of every scan — never skip it.)
+(One block per DISTINCT pattern found, so usually fewer blocks than the finding Total, ordered by impact: highest-severity, most-instances first. Its severity is the pattern's own; the findings named in its heading can score higher (one-span rule). This is the detailed close of every scan — never skip it.)
 
-### <Pattern name> — N instances · <severity>
+### <Pattern name> — N instances · <severity> · findings N, N
 
 - **What it is:** 2-3 sentences describing the pattern and the shape it takes in THIS text (not a generic definition — tie it to how this writer used it).
 - **Why it reads as AI:** what the generator is doing when it produces this (e.g., resolving every argument with a reframe; filling an emphasis slot per section), and what a reader subconsciously notices.
