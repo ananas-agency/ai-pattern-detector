@@ -66,7 +66,6 @@ One of these is noise. Three or more across a text is manufactured intimacy — 
 - **Far-from reveal:** "Far from being X, it's actually Y." [Medium]
 - **Inclusive whether:** "Whether you're a beginner or a pro…" / "Whether you're X, Y, or Z…". The same audience sweep without "whether" counts too: "From beginners to experts…". (A plain "from X to Y" range is ordinary writing and isn't flagged; Wikipedia no longer lists it.) [Medium]
 - **Rule of three / tricolon:** three parallel adjectives, verbs, or short clauses — especially when the third item is more abstract than the first two ("…faster, smarter, and more meaningful"). [Weak; Medium when the third item is the most abstract]
-- **Pivot em-dash:** dramatic mid-sentence reveal via em-dash, repeated across paragraphs. [Medium]
 - **Significance/legacy formula:** "stands as a testament to," "serves as a reminder of," "marks a pivotal moment," "represents a significant shift," "leaves an indelible mark," "highlights its importance," "underscores its significance," "reflects broader trends," "symbolizes enduring legacy," "contributing to," "setting the stage for." [Strong]
 - **Reveal-close:** "And that's the real power of X." / "That's where X comes in." [Medium]
 - **Self-answered question:** a rhetorical question resolved in the very next breath — "The result? X." / "The catch? Y." / "What if I told you…? Here's what I mean:" / "Sound familiar? That's because…" The question exists only to set up the answer; no reader was meant to think. [Medium]
