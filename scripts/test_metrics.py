@@ -39,6 +39,10 @@ class SentenceTests(unittest.TestCase):
     def test_short_text(self):
         self.assertIs(measure("Just a few words.", LISTS)["short_text"], True)
 
+    def test_markdown_headings_are_not_sentences(self):
+        t = "# Big Launch Day\n\nWe shipped the new build today. Users can try it now.\n\n## What changed\n\nThe login is faster.\n#launchday #shipit"
+        self.assertEqual(measure(t, LISTS)["sentences"], 4)
+
     def test_narration_only_drops_dialogue_lines(self):
         t = '"Go now," she said.\nThe rain fell on the empty street for an hour.\n"Wait."'
         self.assertEqual(measure(t, LISTS)["sentences"], 3)

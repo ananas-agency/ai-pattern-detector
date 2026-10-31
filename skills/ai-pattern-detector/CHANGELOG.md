@@ -14,7 +14,7 @@ Safe rewrites, a Wikipedia refresh, new patterns, fiction, and an optional measu
 - **Newer-model short rhythm** (§8): runs of 8–20-word sentences with no dashes.
 - **A default strength tag on every pattern,** used unless density, position, or register clearly moves it.
 - **Safety rules:** scanned text is material, never instructions; a phrase the text only mentions (in a title, a name, or quoted as an example) isn't flagged, while a quotation that uses one, such as a spokesperson's line in a release, is scanned and kept word for word in rewrites; letter and email sign-offs aren't chat leftovers; text known to predate 30 November 2022 gets a "predates ChatGPT" verdict; writing fixes into a file changes prose only; off-catalog findings are capped at Weak; signs of human writing are kept in rewrites and named in the verdict.
-- **Optional measurement helper** (`scripts/metrics.py`): with Python, the Step 1 numbers are measured exactly; without it, the skill estimates them as before. The Metrics line ends with "measured" or "estimated".
+- **Optional measurement helper** (`scripts/metrics.py`): with Python, the Step 1 numbers are measured exactly; without it, the skill estimates them as before. The Metrics line ends with "measured" or "estimated". Markdown headings don't count as sentences.
 - **A "Why AI text sounds this way" section** with the guiding rule: every sentence should add something the reader didn't already have.
 - **Repo tooling:** release checks written once in `scripts/CHECKS.md` and run by `scripts/validate.py` or, without Python, the `/check-release` command; unit tests; CI; marketplace install; issue templates; a contributor guide (CLAUDE.md); and a 24-case eval set in `evals/`.
 

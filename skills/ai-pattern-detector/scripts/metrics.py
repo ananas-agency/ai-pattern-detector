@@ -39,6 +39,7 @@ STOPWORDS = set(
 
 WORD = re.compile(r"[^\W_]+(?:['’][^\W_]+)*")
 SENTENCE_BREAK = re.compile(r"(?<=[.!?…])[\"'”’)\]]*\s+")
+HEADING = re.compile(r"#{1,6}\s")  # a Markdown heading, not a hashtag
 
 
 def words_of(text: str) -> list[str]:
@@ -116,7 +117,7 @@ def _matcher(entries: list[str]):
 def _sentences(paragraph: str, narration_only: bool) -> list[str]:
     out = []
     for line in paragraph.split("\n"):
-        if narration_only and line.lstrip().startswith(QUOTE_MARKS):
+        if HEADING.match(line.lstrip()) or narration_only and line.lstrip().startswith(QUOTE_MARKS):
             continue
         start = 0
         for m in SENTENCE_BREAK.finditer(line):
