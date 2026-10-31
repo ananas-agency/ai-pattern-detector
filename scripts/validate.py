@@ -141,8 +141,17 @@ def check_strength_tags(patterns: str) -> list[str]:
     return errors
 
 
-def check_examples(examples: str, count: int) -> list[str]:
-    """CHECKS.md #7"""
+def load_metrics():
+    """Import the skill's measurement helper from its file (it is not an installed package)."""
+    spec = importlib.util.spec_from_file_location("metrics", SKILL_DIR / "scripts" / "metrics.py")
+    metrics = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(metrics)
+    return metrics
+
+
+def check_examples(examples: str, count: int, word_lists: dict[str, list[str]] | None = None) -> list[str]:
+    """CHECKS.md #7. Without word_lists (no measurement helper), the catalog-word rule is skipped."""
+    measure = load_metrics().measure if word_lists else None
     errors = []
     seen = set()
     entry = None
@@ -170,6 +179,10 @@ def check_examples(examples: str, count: int) -> list[str]:
                 errors.append(f'examples.md entry {entry}: After contains " -- "')
             if "not just" in line.lower():
                 errors.append(f'examples.md entry {entry}: After contains "not just"')
+            if measure:
+                found = measure(line[len("**After:**"):], word_lists)["vocab"]["found"]
+                if found:
+                    errors.append(f"examples.md entry {entry}: After contains §1 vocabulary: {', '.join(sorted(found))}")
     for register in REGISTERS:
         if register not in seen:
             errors.append(f'examples.md: no entry for register "{register}"')
@@ -196,10 +209,7 @@ REQUIRED_WORD_LISTS = ("verbs", "adjectives", "nouns", "transition", "faux-since
 
 def check_metrics_parse(patterns: str) -> list[str]:
     """CHECKS.md #9"""
-    spec = importlib.util.spec_from_file_location("metrics", SKILL_DIR / "scripts" / "metrics.py")
-    metrics = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(metrics)
-    lists = metrics.load_word_lists(patterns)
+    lists = load_metrics().load_word_lists(patterns)
     missing = [
         key for key in REQUIRED_WORD_LISTS
         if not any(key in label.lower() and words for label, words in lists.items())
@@ -236,6 +246,8 @@ def main() -> int:
     if fiction is not None:
         texts["fiction.md"] = fiction
     count = section_count(patterns)
+    has_metrics = (SKILL_DIR / "scripts" / "metrics.py").exists()
+    word_lists = load_metrics().load_word_lists(patterns) if has_metrics else None
 
     errors = []
     errors += check_version(plugin, changelog)
@@ -244,9 +256,9 @@ def main() -> int:
     errors += check_section_refs(texts, count)
     errors += check_word_budget(skill, patterns)
     errors += check_strength_tags(patterns)
-    errors += check_examples(examples, count) if examples is not None else ["missing references/examples.md"]
+    errors += check_examples(examples, count, word_lists) if examples is not None else ["missing references/examples.md"]
     errors += check_readme_score(readme)
-    if (SKILL_DIR / "scripts" / "metrics.py").exists():
+    if has_metrics:
         errors += check_metrics_parse(patterns)
 
     for error in errors:

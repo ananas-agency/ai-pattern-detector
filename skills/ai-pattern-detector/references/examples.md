@@ -55,8 +55,8 @@ Companion to [SKILL.md](../SKILL.md) and [patterns.md](patterns.md). Each entry 
 
 ### 9. §5 Meta-commentary — blog / editorial
 **Before:** "In this section, we'll explore the three key ways remote work reshapes team culture, starting with trust. Let's dive in."
-**After:** "Remote work reshapes team culture in three ways. The first is trust."
-**Changes:** Cut the "In this section, we'll explore" signpost, "key", and "Let's dive in." Folded the promise into the first point. Kept "three ways" and "trust".
+**After:** "Remote work changes team culture in three ways. The first is trust."
+**Changes:** Cut the "In this section, we'll explore" signpost, "key", and "Let's dive in." Swapped "reshapes" for "changes". Folded the promise into the first point. Kept "three ways" and "trust".
 
 ### 10. §6 Closer — general
 **Before:** "In conclusion, adopting the incident-review template in the appendix can help organizations navigate challenges and unlock their full potential moving forward."

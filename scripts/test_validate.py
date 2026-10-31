@@ -136,6 +136,15 @@ class ExampleTests(unittest.TestCase):
         ex = "".join(f'### {i}. §1 Vocab — {r}\n**After:** "Plain."\n' for i, r in enumerate(REGISTERS, 1))
         self.assertEqual(check_examples(ex, 12), [])
 
+    def test_after_with_counted_catalog_word(self):
+        lists = {"High-signal verbs": ["reshape"], "Transition words": ["moreover"], "Newer-model words": ["steady"]}
+        ex = "".join(f'### {i}. §1 Vocab — {r}\n**After:** "Plain."\n' for i, r in enumerate(REGISTERS, 1))
+        ex += '### 9. §1 Vocab — general\n**After:** "Remote work reshapes teams. Moreover, steady."\n'
+        errs = check_examples(ex, 12, lists)
+        self.assertEqual(len(errs), 1, errs)
+        self.assertIn("entry 9", errs[0])
+        self.assertIn("reshape", errs[0])
+
 
 class ReadmeScoreTests(unittest.TestCase):
     COUNTS = "**Counts:** Strong: 4 · Medium: 1 · Weak: 1 · Total: 6\n"

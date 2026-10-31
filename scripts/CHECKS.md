@@ -40,6 +40,7 @@ In `references/examples.md`:
 - Every entry heading has the form `### N. §X <pattern name> — <register>`, where §X is a section from 1 to N and the register (the text after the last ` — `) is one of: social post, marketing / landing page, product description, blog / editorial, scientific / academic, business / professional, fiction / narrative, general.
 - Every one of those eight registers has at least one entry.
 - No `**After:**` line contains an em-dash (—), a spaced double hyphen ( -- ), or "not just" (any capitalisation).
+- No `**After:**` line contains a word or phrase from the patterns.md §1 lists that count toward vocabulary density (every §1 list except newer-model words, transition words, and faux-sincerity adverbs), in any form ending -s, -es, -d, -ed, -ing, or -ly. Skip this rule when `skills/ai-pattern-detector/scripts/metrics.py` doesn't exist.
 
 ## 8. README score
 
