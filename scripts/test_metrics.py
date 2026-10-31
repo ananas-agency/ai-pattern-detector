@@ -70,6 +70,11 @@ class VocabTests(unittest.TestCase):
         r = measure("A seamlessly integrated, cutting-edge tool.", lists)
         self.assertEqual(r["vocab"]["found"], {"seamless": 1, "cutting-edge": 1})
 
+    def test_overlapping_entries_count_once(self):
+        lists = {"High-signal nouns": ["a tapestry of", "tapestry"], "High-signal verbs": ["dive into", "deep dive"]}
+        r = measure("A tapestry of cultures. A deep dive into data.", lists)
+        self.assertEqual(r["vocab"]["found"], {"a tapestry of": 1, "deep dive": 1})
+
     def test_newer_model_window(self):
         w = ["filler"] * 600
         w[10], w[20], w[400] = "quietly", "steady", "practical"

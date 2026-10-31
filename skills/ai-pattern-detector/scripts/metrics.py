@@ -95,11 +95,20 @@ def _matcher(entries: list[str]):
             phrases.append((parts, entry))
 
     def hits(tokens: list[str]) -> list[tuple[int, str]]:
-        found = [(i, single[t]) for i, t in enumerate(tokens) if t in single]
-        for parts, entry in phrases:
-            n = len(parts)
-            found += [(i, entry) for i in range(len(tokens) - n + 1) if tokens[i:i + n] == parts]
-        return found
+        matches = [
+            (i, len(parts), entry)
+            for parts, entry in phrases
+            for i in range(len(tokens) - len(parts) + 1)
+            if tokens[i:i + len(parts)] == parts
+        ]
+        taken: set[int] = set()
+        found = []
+        for i, n, entry in sorted(matches, key=lambda m: (-m[1], m[0])):  # longest phrase first, then leftmost
+            if taken.isdisjoint(range(i, i + n)):
+                taken.update(range(i, i + n))
+                found.append((i, entry))
+        found += [(i, single[t]) for i, t in enumerate(tokens) if t in single and i not in taken]
+        return sorted(found)
 
     return hits
 
