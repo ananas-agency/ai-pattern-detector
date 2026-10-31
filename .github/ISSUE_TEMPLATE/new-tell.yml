@@ -1,0 +1,25 @@
+name: New tell
+description: Report a sign of AI writing that the skill doesn't catch yet.
+labels: ["new tell"]
+body:
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Paste a passage that shows the tell. Strip out anything confidential.
+    validations:
+      required: true
+  - type: textarea
+    id: human
+    attributes:
+      label: How a person would write it
+      description: The same passage the way a careful human writer would put it.
+    validations:
+      required: true
+  - type: textarea
+    id: closest
+    attributes:
+      label: Closest existing pattern, and why it misses this
+      description: Name the section of references/patterns.md that comes nearest (for example §3). Often a new tell is a variant of an existing one.
+    validations:
+      required: true

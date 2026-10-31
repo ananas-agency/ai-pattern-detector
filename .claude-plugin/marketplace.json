@@ -1,0 +1,14 @@
+{
+  "name": "ai-pattern-detector",
+  "description": "The ai-pattern-detector plugin: scan writing for AI patterns and get specific, fact-safe rewrites.",
+  "owner": {
+    "name": "Ananas Agency"
+  },
+  "plugins": [
+    {
+      "name": "ai-pattern-detector",
+      "source": "./",
+      "description": "Scan text for telltale AI-writing patterns (vocabulary, constructions, punctuation, hedges, closers, formatting, voice) and propose specific rewrites to make it sound human."
+    }
+  ]
+}
